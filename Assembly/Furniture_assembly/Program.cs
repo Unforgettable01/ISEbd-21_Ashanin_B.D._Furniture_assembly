@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Furniture_assembly_BusinessLogic.BusinessLogics;
+using Furniture_assembly_BusinessLogic.Interfaces;
+using Furniture_assembly_List_Implement.Implements;
+using System;
 using System.Windows.Forms;
+using Unity;
+using Unity.Lifetime;
 
 namespace Furniture_assembly
 {
@@ -14,9 +16,30 @@ namespace Furniture_assembly
         [STAThread]
         static void Main()
         {
+            var container = BuildUnityContainer();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(container.Resolve<FormMain>());
+        }
+
+        private static IUnityContainer BuildUnityContainer()
+        {
+            var currentContainer = new UnityContainer();
+
+            currentContainer.RegisterType<IComponentStorage, ComponentStorage>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<IOrderStorage, OrderStorage>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<IProductStorage, ProductStorage>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<ComponentLogic>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<OrderLogic>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<FurnitureLogic>(new HierarchicalLifetimeManager());
+
+            return currentContainer;
         }
     }
 }

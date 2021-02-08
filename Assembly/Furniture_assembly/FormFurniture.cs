@@ -1,4 +1,6 @@
-﻿using Furniture_assembly_BusinessLogic.ViewModels;
+﻿using Furniture_assembly_BusinessLogic.BindingModels;
+using Furniture_assembly_BusinessLogic.BusinessLogics;
+using Furniture_assembly_BusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -11,10 +13,10 @@ namespace Furniture_assembly
         [Dependency]
         public new IUnityContainer Container { get; set; }
         public int Id { set { id = value; } }
-        private readonly ProductLogic logic;
+        private readonly FurnitureLogic logic;
         private int? id;
         private Dictionary<int, (string, int)> productComponents;
-        public FormFurniture(ProductLogic service)
+        public FormFurniture(FurnitureLogic service)
         {
             InitializeComponent();
             this.logic = service;
@@ -25,10 +27,7 @@ namespace Furniture_assembly
             {
                 try
                 {
-                    ProductViewModel view = logic.Read(new ProductBindingModel
-                    {
-                        Id = id.Value
-                    })?[0];
+                    ProductViewModel view = logic.Read(new FurnitureBindingModel{Id = id.Value})?[0];
                     if (view != null)
                     {
                         textBoxName.Text = view.ProductName;
@@ -145,7 +144,7 @@ namespace Furniture_assembly
             }
             try
             {
-                logic.CreateOrUpdate(new ProductBindingModel
+                logic.CreateOrUpdate(new FurnitureBindingModel
                 {
                     Id = id,
                     ProductName = textBoxName.Text,

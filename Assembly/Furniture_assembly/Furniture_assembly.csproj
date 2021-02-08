@@ -67,11 +67,23 @@
     <Compile Include="FormComponents.Designer.cs">
       <DependentUpon>FormComponents.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateOrder.Designer.cs">
+      <DependentUpon>FormCreateOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFurniture.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormFurniture.Designer.cs">
       <DependentUpon>FormFurniture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProductComponent.cs">
       <SubType>Form</SubType>
@@ -87,8 +99,14 @@
     <EmbeddedResource Include="FormComponents.resx">
       <DependentUpon>FormComponents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateOrder.resx">
+      <DependentUpon>FormCreateOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFurniture.resx">
       <DependentUpon>FormFurniture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductComponent.resx">
       <DependentUpon>FormProductComponent.cs</DependentUpon>
@@ -120,6 +138,10 @@
     <ProjectReference Include="..\Furniture_assembly_BusinessLogic\Furniture_assembly_BusinessLogic.csproj">
       <Project>{b7c32e62-fc1e-4ea7-9c8a-87a3ed3db59e}</Project>
       <Name>Furniture_assembly_BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Furniture_assembly_List_Implement\Furniture_assembly_List_Implement.csproj">
+      <Project>{90856ed0-3d18-4b8b-a6ba-4cc49a6ef07a}</Project>
+      <Name>Furniture_assembly_List_Implement</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
