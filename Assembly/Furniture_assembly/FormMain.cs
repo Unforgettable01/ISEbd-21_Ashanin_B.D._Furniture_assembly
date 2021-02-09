@@ -117,6 +117,5 @@ namespace Furniture_assembly
         {
             LoadData();
         }
-
     }
 }

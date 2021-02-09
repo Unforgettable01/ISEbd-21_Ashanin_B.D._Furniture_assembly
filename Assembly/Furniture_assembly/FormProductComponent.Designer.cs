@@ -65,12 +65,6 @@ namespace Furniture_assembly
             // comboBoxComponent
             // 
             this.comboBoxComponent.FormattingEnabled = true;
-            this.comboBoxComponent.Items.AddRange(new object[] {
-            "Ножка",
-            "Спинка",
-            "Сидение",
-            "Подлокотник",
-            "Подголовник"});
             this.comboBoxComponent.Location = new System.Drawing.Point(128, 28);
             this.comboBoxComponent.Name = "comboBoxComponent";
             this.comboBoxComponent.Size = new System.Drawing.Size(194, 28);
@@ -84,6 +78,7 @@ namespace Furniture_assembly
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonCancel
             // 
@@ -93,6 +88,7 @@ namespace Furniture_assembly
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Отменить";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // FormProductComponent
             // 

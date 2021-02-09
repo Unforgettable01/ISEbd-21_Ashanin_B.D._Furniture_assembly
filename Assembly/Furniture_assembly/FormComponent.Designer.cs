@@ -43,6 +43,7 @@ namespace Furniture_assembly
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonCancel
             // 
@@ -52,6 +53,7 @@ namespace Furniture_assembly
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Отменить";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // labelName
             // 
@@ -80,6 +82,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.buttonSave);
             this.Name = "FormComponent";
             this.Text = "Компонент";
+            this.Load += new System.EventHandler(this.FormComponent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

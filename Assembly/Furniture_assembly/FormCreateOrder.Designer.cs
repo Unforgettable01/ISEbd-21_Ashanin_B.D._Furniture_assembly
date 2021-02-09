@@ -44,7 +44,7 @@ namespace Furniture_assembly
             this.labelFurnitures.AutoSize = true;
             this.labelFurnitures.Location = new System.Drawing.Point(13, 13);
             this.labelFurnitures.Name = "labelFurnitures";
-            this.labelFurnitures.Size = new System.Drawing.Size(126, 30);
+            this.labelFurnitures.Size = new System.Drawing.Size(84, 20);
             this.labelFurnitures.TabIndex = 0;
             this.labelFurnitures.Text = "Изделие: ";
             // 
@@ -53,7 +53,7 @@ namespace Furniture_assembly
             this.labelCount.AutoSize = true;
             this.labelCount.Location = new System.Drawing.Point(12, 64);
             this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(156, 30);
+            this.labelCount.Size = new System.Drawing.Size(104, 20);
             this.labelCount.TabIndex = 1;
             this.labelCount.Text = "Количество:";
             // 
@@ -62,23 +62,18 @@ namespace Furniture_assembly
             this.labelSum.AutoSize = true;
             this.labelSum.Location = new System.Drawing.Point(17, 112);
             this.labelSum.Name = "labelSum";
-            this.labelSum.Size = new System.Drawing.Size(93, 30);
+            this.labelSum.Size = new System.Drawing.Size(62, 20);
             this.labelSum.TabIndex = 2;
             this.labelSum.Text = "Сумма:";
             // 
             // comboBoxFurniture
             // 
             this.comboBoxFurniture.FormattingEnabled = true;
-            this.comboBoxFurniture.Items.AddRange(new object[] {
-            "Стул",
-            "Кресло",
-            "Стол",
-            "Табурет",
-            "Подставка"});
             this.comboBoxFurniture.Location = new System.Drawing.Point(130, 13);
             this.comboBoxFurniture.Name = "comboBoxFurniture";
             this.comboBoxFurniture.Size = new System.Drawing.Size(461, 28);
             this.comboBoxFurniture.TabIndex = 3;
+            this.comboBoxFurniture.SelectedIndexChanged += new System.EventHandler(this.ComboBoxProduct_SelectedIndexChanged);
             // 
             // textBoxCount
             // 
@@ -86,6 +81,7 @@ namespace Furniture_assembly
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(461, 26);
             this.textBoxCount.TabIndex = 4;
+            this.textBoxCount.TextChanged += new System.EventHandler(this.TextBoxCount_TextChanged);
             // 
             // textBoxSum
             // 
@@ -102,6 +98,7 @@ namespace Furniture_assembly
             this.buttonSave.TabIndex = 6;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonCancel
             // 
@@ -111,6 +108,7 @@ namespace Furniture_assembly
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // FormCreateOrder
             // 
@@ -127,6 +125,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.labelFurnitures);
             this.Name = "FormCreateOrder";
             this.Text = "Создание заказа";
+            this.Load += new System.EventHandler(this.FormCreateOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

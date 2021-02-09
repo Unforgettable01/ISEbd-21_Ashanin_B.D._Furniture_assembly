@@ -46,6 +46,7 @@ namespace Furniture_assembly
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonUpdate
             // 
@@ -55,6 +56,7 @@ namespace Furniture_assembly
             this.buttonUpdate.TabIndex = 1;
             this.buttonUpdate.Text = "Изменить";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpd_Click);
             // 
             // buttonDelete
             // 
@@ -64,6 +66,7 @@ namespace Furniture_assembly
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonDel_Click);
             // 
             // buttonRefresh
             // 
@@ -73,6 +76,7 @@ namespace Furniture_assembly
             this.buttonRefresh.TabIndex = 3;
             this.buttonRefresh.Text = "Обновить";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
             // dataGridViewComponents
             // 
@@ -90,11 +94,12 @@ namespace Furniture_assembly
             // 
             // Название_компонента
             // 
-            this.Название_компонента.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Название_компонента.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Название_компонента.HeaderText = "Название изделия";
             this.Название_компонента.MinimumWidth = 8;
             this.Название_компонента.Name = "Название_компонента";
-            this.Название_компонента.Width = 172;
+            this.Название_компонента.ReadOnly = true;
+            this.Название_компонента.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FormComponents
             // 
@@ -108,6 +113,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.buttonAdd);
             this.Name = "FormComponents";
             this.Text = "Компоненты";
+            this.Load += new System.EventHandler(this.FormComponents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComponents)).EndInit();
             this.ResumeLayout(false);
 

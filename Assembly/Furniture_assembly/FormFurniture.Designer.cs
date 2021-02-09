@@ -32,15 +32,15 @@ namespace Furniture_assembly
             this.labelName = new System.Windows.Forms.Label();
             this.labelPrice = new System.Windows.Forms.Label();
             this.groupBoxComponents = new System.Windows.Forms.GroupBox();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.Update = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.dataGridViewComponents = new System.Windows.Forms.DataGridView();
-            this.buttonSaveAll = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.ColumnComponent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.Update = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonSaveAll = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupBoxComponents.SuspendLayout();
@@ -79,42 +79,6 @@ namespace Furniture_assembly
             this.groupBoxComponents.TabStop = false;
             this.groupBoxComponents.Text = "Компоненты";
             // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(582, 26);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(127, 42);
-            this.buttonSave.TabIndex = 0;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            // 
-            // Update
-            // 
-            this.Update.Location = new System.Drawing.Point(582, 85);
-            this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(127, 42);
-            this.Update.TabIndex = 1;
-            this.Update.Text = "Изменить";
-            this.Update.UseVisualStyleBackColor = true;
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(582, 144);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(127, 42);
-            this.buttonDelete.TabIndex = 2;
-            this.buttonDelete.Text = "Удалить";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(582, 206);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(127, 42);
-            this.buttonUpdate.TabIndex = 3;
-            this.buttonUpdate.Text = "Обновить";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            // 
             // dataGridViewComponents
             // 
             this.dataGridViewComponents.AllowUserToAddRows = false;
@@ -132,6 +96,60 @@ namespace Furniture_assembly
             this.dataGridViewComponents.Size = new System.Drawing.Size(560, 222);
             this.dataGridViewComponents.TabIndex = 2;
             // 
+            // ColumnComponent
+            // 
+            this.ColumnComponent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnComponent.HeaderText = "Компонент";
+            this.ColumnComponent.MinimumWidth = 8;
+            this.ColumnComponent.Name = "ColumnComponent";
+            // 
+            // ColumnCount
+            // 
+            this.ColumnCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCount.HeaderText = "Количество";
+            this.ColumnCount.MinimumWidth = 8;
+            this.ColumnCount.Name = "ColumnCount";
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(582, 206);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(127, 42);
+            this.buttonUpdate.TabIndex = 3;
+            this.buttonUpdate.Text = "Обновить";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.ButtonRef_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(582, 144);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(127, 42);
+            this.buttonDelete.TabIndex = 2;
+            this.buttonDelete.Text = "Удалить";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonDel_Click);
+            // 
+            // Update
+            // 
+            this.Update.Location = new System.Drawing.Point(582, 85);
+            this.Update.Name = "Update";
+            this.Update.Size = new System.Drawing.Size(127, 42);
+            this.Update.TabIndex = 1;
+            this.Update.Text = "Изменить";
+            this.Update.UseVisualStyleBackColor = true;
+            this.Update.Click += new System.EventHandler(this.ButtonUpd_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(582, 26);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(127, 42);
+            this.buttonSave.TabIndex = 0;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.ButtonAdd_Click);
+            // 
             // buttonSaveAll
             // 
             this.buttonSaveAll.Location = new System.Drawing.Point(282, 388);
@@ -141,6 +159,7 @@ namespace Furniture_assembly
             this.buttonSaveAll.Text = "Сохранить";
             this.buttonSaveAll.UseCompatibleTextRendering = true;
             this.buttonSaveAll.UseVisualStyleBackColor = true;
+            this.buttonSaveAll.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonCancel
             // 
@@ -150,19 +169,7 @@ namespace Furniture_assembly
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Отменить";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // ColumnComponent
-            // 
-            this.ColumnComponent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnComponent.HeaderText = "Компонент";
-            this.ColumnComponent.Name = "ColumnComponent";
-            // 
-            // ColumnCount
-            // 
-            this.ColumnCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnCount.HeaderText = "Количество";
-            this.ColumnCount.MinimumWidth = 8;
-            this.ColumnCount.Name = "ColumnCount";
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // textBoxPrice
             // 
@@ -192,6 +199,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.labelName);
             this.Name = "FormFurniture";
             this.Text = "Изделие";
+            this.Load += new System.EventHandler(this.FormProduct_Load);
             this.groupBoxComponents.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComponents)).EndInit();
             this.ResumeLayout(false);
