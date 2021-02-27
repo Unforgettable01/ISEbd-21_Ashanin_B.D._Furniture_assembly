@@ -27,7 +27,10 @@ namespace Furniture_assembly
             {
                 try
                 {
-                    ProductViewModel view = logic.Read(new FurnitureBindingModel{Id = id.Value})?[0];
+                    ProductViewModel view = logic.Read(new FurnitureBindingModel
+                    {
+                        Id = id.Value
+                    })?[0];
                     if (view != null)
                     {
                         textBoxName.Text = view.ProductName;
@@ -86,6 +89,7 @@ namespace Furniture_assembly
         {
             if (dataGridViewComponents.SelectedRows.Count == 1)
             {
+
                 var form = Container.Resolve<FormProductComponent>();
                 int id = Convert.ToInt32(dataGridViewComponents.SelectedRows[0].Cells[0].Value);
                 form.Id = id;

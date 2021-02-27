@@ -34,7 +34,6 @@ namespace Furniture_assembly
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.dataGridViewComponents = new System.Windows.Forms.DataGridView();
-            this.Название_компонента = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComponents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,23 +82,12 @@ namespace Furniture_assembly
             this.dataGridViewComponents.AllowUserToOrderColumns = true;
             this.dataGridViewComponents.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewComponents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewComponents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Название_компонента});
             this.dataGridViewComponents.Location = new System.Drawing.Point(2, 2);
             this.dataGridViewComponents.Name = "dataGridViewComponents";
             this.dataGridViewComponents.RowHeadersWidth = 62;
             this.dataGridViewComponents.RowTemplate.Height = 28;
-            this.dataGridViewComponents.Size = new System.Drawing.Size(627, 452);
+            this.dataGridViewComponents.Size = new System.Drawing.Size(643, 452);
             this.dataGridViewComponents.TabIndex = 4;
-            // 
-            // Название_компонента
-            // 
-            this.Название_компонента.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Название_компонента.HeaderText = "Название изделия";
-            this.Название_компонента.MinimumWidth = 8;
-            this.Название_компонента.Name = "Название_компонента";
-            this.Название_компонента.ReadOnly = true;
-            this.Название_компонента.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FormComponents
             // 
@@ -126,6 +114,5 @@ namespace Furniture_assembly
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridView dataGridViewComponents;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Название_компонента;
     }
 }

@@ -16,10 +16,19 @@ namespace Furniture_assembly
             get { return Convert.ToInt32(comboBoxComponent.SelectedValue); }
             set { comboBoxComponent.SelectedValue = value; }
         }
-        public string ComponentName { get { return comboBoxComponent.Text; } }
+        public string ComponentName 
+        { 
+            get
+            { 
+                return comboBoxComponent.Text; 
+            } 
+        }
         public int Count
         {
-            get { return Convert.ToInt32(textBoxNumbersComponents.Text); }
+            get 
+            {
+                return Convert.ToInt32(textBoxNumbersComponents.Text);
+            }
             set
             {
                 textBoxNumbersComponents.Text = value.ToString();
