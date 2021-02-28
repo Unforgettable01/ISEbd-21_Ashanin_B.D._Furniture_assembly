@@ -31,7 +31,7 @@ namespace Furniture_assembly
 
             currentContainer.RegisterType<IOrderStorage, OrderStorage>(new HierarchicalLifetimeManager());
 
-            currentContainer.RegisterType<IProductStorage, ProductStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IFurnitureStorage, FurnitureStorage>(new HierarchicalLifetimeManager());
 
             currentContainer.RegisterType<ComponentLogic>(new HierarchicalLifetimeManager());
 

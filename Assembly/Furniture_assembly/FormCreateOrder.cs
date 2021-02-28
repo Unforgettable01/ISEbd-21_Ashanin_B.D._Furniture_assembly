@@ -24,10 +24,10 @@ namespace Furniture_assembly
         {
             try
             {
-                List<ProductViewModel> list = _logicP.Read(null);
+                List<FurnitureViewModel> list = _logicP.Read(null);
                 if (list != null)
                 {
-                    comboBoxFurniture.DisplayMember = "ProductName";
+                    comboBoxFurniture.DisplayMember = "FurnitureName";
                     comboBoxFurniture.ValueMember = "Id";
                     comboBoxFurniture.DataSource = list;
                     comboBoxFurniture.SelectedItem = null;
@@ -47,7 +47,7 @@ namespace Furniture_assembly
                 try
                 {
                     int id = Convert.ToInt32(comboBoxFurniture.SelectedValue);
-                    ProductViewModel product = _logicP.Read(new FurnitureBindingModel
+                    FurnitureViewModel product = _logicP.Read(new FurnitureBindingModel
                     { Id = id})?[0];
                     int count = Convert.ToInt32(textBoxCount.Text);
                     textBoxSum.Text = (count * product?.Price ?? 0).ToString();
@@ -86,7 +86,7 @@ namespace Furniture_assembly
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
-                    ProductId = Convert.ToInt32(comboBoxFurniture.SelectedValue),
+                    FurnitureId = Convert.ToInt32(comboBoxFurniture.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });

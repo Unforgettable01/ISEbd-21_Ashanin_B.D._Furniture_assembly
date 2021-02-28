@@ -8,31 +8,30 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
 {
     public class FurnitureLogic
     {
-        private readonly IProductStorage _productStorage;
-        public FurnitureLogic(IProductStorage secureStorage)
+        private readonly IFurnitureStorage _furnitureStorage;
+        public FurnitureLogic(IFurnitureStorage secureStorage)
         {
-            _productStorage = secureStorage;
+            _furnitureStorage = secureStorage;
         }
 
-        public List<ProductViewModel> Read(FurnitureBindingModel model)
+        public List<FurnitureViewModel> Read(FurnitureBindingModel model)
         {
             if (model == null)
             {
-                return _productStorage.GetFullList();
+                return _furnitureStorage.GetFullList();
             }
             if (model.Id.HasValue)
             {
-                return new List<ProductViewModel> { _productStorage.GetElement(model)
-};
+                return new List<FurnitureViewModel> { _furnitureStorage.GetElement(model)};
             }
-            return _productStorage.GetFilteredList(model);
+            return _furnitureStorage.GetFilteredList(model);
         }
 
         public void CreateOrUpdate(FurnitureBindingModel model)
         {
-            var element = _productStorage.GetElement(new FurnitureBindingModel
+            var element = _furnitureStorage.GetElement(new FurnitureBindingModel
             {
-                ProductName = model.ProductName
+                FurnitureName = model.FurnitureName
             });
             if (element != null && element.Id != model.Id)
             {
@@ -40,17 +39,17 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             }
             if (model.Id.HasValue)
             {
-                _productStorage.Update(model);
+                _furnitureStorage.Update(model);
             }
             else
             {
-                _productStorage.Insert(model);
+                _furnitureStorage.Insert(model);
             }
         }
 
         public void Delete(FurnitureBindingModel model)
         {
-            var element = _productStorage.GetElement(new FurnitureBindingModel
+            var element = _furnitureStorage.GetElement(new FurnitureBindingModel
             {
                 Id = model.Id
             });
@@ -58,7 +57,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             {
                 throw new Exception("Элемент не найден");
             }
-            _productStorage.Delete(model);
+            _furnitureStorage.Delete(model);
         }
     }
 }

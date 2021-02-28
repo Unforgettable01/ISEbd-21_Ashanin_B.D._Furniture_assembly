@@ -8,12 +8,12 @@ namespace Furniture_assembly_List_Implement
         private static DataListSingleton instance;
         public List<Component> Components { get; set; }
         public List<Order> Orders { get; set; }
-        public List<Product> Products { get; set; }
+        public List<Furniture> Furnitures { get; set; }
         private DataListSingleton()
         {
             Components = new List<Component>();
             Orders = new List<Order>();
-            Products = new List<Product>();
+            Furnitures = new List<Furniture>();
         }
         public static DataListSingleton GetInstance()
         {

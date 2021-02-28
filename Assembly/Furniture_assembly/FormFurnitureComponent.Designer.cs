@@ -1,7 +1,7 @@
 ﻿
 namespace Furniture_assembly
 {
-    partial class FormProductComponent
+    partial class FormFurnitureComponent
     {
         /// <summary>
         /// Required designer variable.

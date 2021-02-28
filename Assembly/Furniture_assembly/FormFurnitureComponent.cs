@@ -7,7 +7,7 @@ using Unity;
 
 namespace Furniture_assembly
 {
-    public partial class FormProductComponent : Form
+    public partial class FormFurnitureComponent : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
@@ -34,7 +34,7 @@ namespace Furniture_assembly
                 textBoxNumbersComponents.Text = value.ToString();
             }
         }
-        public FormProductComponent(ComponentLogic logic)
+        public FormFurnitureComponent(ComponentLogic logic)
         {
             InitializeComponent();
             List<ComponentViewModel> list = logic.Read(null);

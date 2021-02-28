@@ -209,7 +209,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.labelName);
             this.Name = "FormFurniture";
             this.Text = "Изделие";
-            this.Load += new System.EventHandler(this.FormProduct_Load);
+            this.Load += new System.EventHandler(this.FormFurniture_Load);
             this.groupBoxComponents.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComponents)).EndInit();
             this.ResumeLayout(false);

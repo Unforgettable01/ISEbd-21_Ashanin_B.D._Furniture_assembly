@@ -48,8 +48,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         {
             var element = _componentStorage.GetElement(new ComponentBindingModel
             {
-                Id =
-           model.Id
+                Id = model.Id
             });
             if (element == null)
             {

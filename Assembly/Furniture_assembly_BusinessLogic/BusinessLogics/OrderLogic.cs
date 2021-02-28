@@ -30,7 +30,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         {
             _orderStorage.Insert(new OrderBindingModel
             {
-                ProductId = model.ProductId,
+                FurnitureId = model.FurnitureId,
                 Count = model.Count,
                 Sum = model.Sum,
                 DateCreate = DateTime.Now,
@@ -55,7 +55,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
+                FurnitureId = order.FurnitureId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -81,7 +81,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
+                FurnitureId = order.FurnitureId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -107,7 +107,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                 _orderStorage.Update(new OrderBindingModel
                 {
                     Id = order.Id,
-                    ProductId = order.ProductId,
+                    FurnitureId = order.FurnitureId,
                     Count = order.Count,
                     Sum = order.Sum,
                     DateCreate = order.DateCreate,

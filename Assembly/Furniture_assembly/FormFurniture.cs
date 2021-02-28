@@ -15,27 +15,27 @@ namespace Furniture_assembly
         public int Id { set { id = value; } }
         private readonly FurnitureLogic logic;
         private int? id;
-        private Dictionary<int, (string, int)> productComponents;
+        private Dictionary<int, (string, int)> furnitureComponents;
         public FormFurniture(FurnitureLogic service)
         {
             InitializeComponent();
             this.logic = service;
         }
-        private void FormProduct_Load(object sender, EventArgs e)
+        private void FormFurniture_Load(object sender, EventArgs e)
         {
             if (id.HasValue)
             {
                 try
                 {
-                    ProductViewModel view = logic.Read(new FurnitureBindingModel
+                    FurnitureViewModel view = logic.Read(new FurnitureBindingModel
                     {
                         Id = id.Value
                     })?[0];
                     if (view != null)
                     {
-                        textBoxName.Text = view.ProductName;
+                        textBoxName.Text = view.FurnitureName;
                         textBoxPrice.Text = view.Price.ToString();
-                        productComponents = view.ProductComponents;
+                        furnitureComponents = view.FurnitureComponents;
                         LoadData();
                     }
                 }
@@ -47,17 +47,17 @@ namespace Furniture_assembly
             }
             else
             {
-                productComponents = new Dictionary<int, (string, int)>();
+                furnitureComponents = new Dictionary<int, (string, int)>();
             }
         }
         private void LoadData()
         {
             try
             {
-                if (productComponents != null)
+                if (furnitureComponents != null)
                 {
                     dataGridViewComponents.Rows.Clear();
-                    foreach (var pc in productComponents)
+                    foreach (var pc in furnitureComponents)
                     {
                         dataGridViewComponents.Rows.Add(new object[] { pc.Key, pc.Value.Item1, pc.Value.Item2 });
                     }
@@ -71,16 +71,16 @@ namespace Furniture_assembly
         }
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormProductComponent>();
+            var form = Container.Resolve<FormFurnitureComponent>();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                if (productComponents.ContainsKey(form.Id))
+                if (furnitureComponents.ContainsKey(form.Id))
                 {
-                    productComponents[form.Id] = (form.ComponentName, form.Count);
+                    furnitureComponents[form.Id] = (form.ComponentName, form.Count);
                 }
                 else
                 {
-                    productComponents.Add(form.Id, (form.ComponentName, form.Count));
+                    furnitureComponents.Add(form.Id, (form.ComponentName, form.Count));
                 }
                 LoadData();
             }
@@ -90,13 +90,13 @@ namespace Furniture_assembly
             if (dataGridViewComponents.SelectedRows.Count == 1)
             {
 
-                var form = Container.Resolve<FormProductComponent>();
+                var form = Container.Resolve<FormFurnitureComponent>();
                 int id = Convert.ToInt32(dataGridViewComponents.SelectedRows[0].Cells[0].Value);
                 form.Id = id;
-                form.Count = productComponents[id].Item2;
+                form.Count = furnitureComponents[id].Item2;
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    productComponents[form.Id] = (form.ComponentName, form.Count);
+                    furnitureComponents[form.Id] = (form.ComponentName, form.Count);
                     LoadData();
                 }
             }
@@ -111,7 +111,7 @@ namespace Furniture_assembly
                     try
                     {
 
-                        productComponents.Remove(Convert.ToInt32(dataGridViewComponents.SelectedRows[0].Cells[0].Value));
+                        furnitureComponents.Remove(Convert.ToInt32(dataGridViewComponents.SelectedRows[0].Cells[0].Value));
                     }
                     catch (Exception ex)
                     {
@@ -140,7 +140,7 @@ namespace Furniture_assembly
                MessageBoxIcon.Error);
                 return;
             }
-            if (productComponents == null || productComponents.Count == 0)
+            if (furnitureComponents == null || furnitureComponents.Count == 0)
             {
                 MessageBox.Show("Заполните компоненты", "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
@@ -151,9 +151,9 @@ namespace Furniture_assembly
                 logic.CreateOrUpdate(new FurnitureBindingModel
                 {
                     Id = id,
-                    ProductName = textBoxName.Text,
+                    FurnitureName = textBoxName.Text,
                     Price = Convert.ToDecimal(textBoxPrice.Text),
-                    ProductComponents = productComponents
+                    FurnitureComponents = furnitureComponents
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);

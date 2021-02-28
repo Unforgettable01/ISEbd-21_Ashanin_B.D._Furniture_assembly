@@ -105,7 +105,7 @@ namespace Furniture_assembly_List_Implement.Implements
 
         private Order CreateModel(OrderBindingModel model, Order order)
         {
-            order.ProductId = model.ProductId;
+            order.FurnitureId = model.FurnitureId;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -119,8 +119,8 @@ namespace Furniture_assembly_List_Implement.Implements
             return new OrderViewModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
-                ProductName = source.Products.FirstOrDefault(product => product.Id == order.ProductId).ProductName,
+                FurnitureId = order.FurnitureId,
+                FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
