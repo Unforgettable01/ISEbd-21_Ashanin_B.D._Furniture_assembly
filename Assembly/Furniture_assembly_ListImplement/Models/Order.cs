@@ -1,7 +1,7 @@
 ﻿using Furniture_assembly_BusinessLogic.Enums;
 using System;
 
-namespace Furniture_assembly_ListImplement
+namespace Furniture_assembly_ListImplement.Models
 {
     /// <summary>
     /// Заказ
@@ -9,7 +9,7 @@ namespace Furniture_assembly_ListImplement
     public class Order
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
+        public int FurnitureId { get; set; }
         public int Count { get; set; }
         public decimal Sum { get; set; }
         public OrderStatus Status { get; set; }

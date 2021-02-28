@@ -1,4 +1,4 @@
-﻿namespace Furniture_assembly_ListImplement
+﻿namespace Furniture_assembly_ListImplement.Models
 {
     /// <summary>
     /// Компонент, требуемый для изготовления изделия

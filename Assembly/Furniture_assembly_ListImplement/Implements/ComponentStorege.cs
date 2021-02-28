@@ -1,18 +1,19 @@
-﻿using System;
+﻿using Furniture_assembly_BusinessLogic.BindingModels;
+using Furniture_assembly_BusinessLogic.Interfaces;
+using Furniture_assembly_BusinessLogic.ViewModels;
+using Furniture_assembly_ListImplement.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Furniture_assembly_List_Implements.Implements
+namespace Furniture_assembly_ListImplement.Implements
 {
     public class ComponentStorage : IComponentStorage
     {
         private readonly DataListSingleton source;
-
         public ComponentStorage()
         {
             source = DataListSingleton.GetInstance();
         }
-
         public List<ComponentViewModel> GetFullList()
         {
             List<ComponentViewModel> result = new List<ComponentViewModel>();
@@ -22,7 +23,6 @@ namespace Furniture_assembly_List_Implements.Implements
             }
             return result;
         }
-
         public List<ComponentViewModel> GetFilteredList(ComponentBindingModel model)
         {
             if (model == null)
@@ -39,7 +39,6 @@ namespace Furniture_assembly_List_Implements.Implements
             }
             return result;
         }
-
         public ComponentViewModel GetElement(ComponentBindingModel model)
         {
             if (model == null)
@@ -56,7 +55,6 @@ namespace Furniture_assembly_List_Implements.Implements
             }
             return null;
         }
-
         public void Insert(ComponentBindingModel model)
         {
             Component tempComponent = new Component { Id = 1 };
@@ -69,7 +67,6 @@ namespace Furniture_assembly_List_Implements.Implements
             }
             source.Components.Add(CreateModel(model, tempComponent));
         }
-
         public void Update(ComponentBindingModel model)
         {
             Component tempComponent = null;
@@ -86,7 +83,6 @@ namespace Furniture_assembly_List_Implements.Implements
             }
             CreateModel(model, tempComponent);
         }
-
         public void Delete(ComponentBindingModel model)
         {
             for (int i = 0; i < source.Components.Count; ++i)
@@ -99,13 +95,11 @@ namespace Furniture_assembly_List_Implements.Implements
             }
             throw new Exception("Элемент не найден");
         }
-
         private Component CreateModel(ComponentBindingModel model, Component component)
         {
             component.ComponentName = model.ComponentName;
             return component;
         }
-
         private ComponentViewModel CreateModel(Component component)
         {
             return new ComponentViewModel
@@ -114,6 +108,5 @@ namespace Furniture_assembly_List_Implements.Implements
                 ComponentName = component.ComponentName
             };
         }
-
     }
 }

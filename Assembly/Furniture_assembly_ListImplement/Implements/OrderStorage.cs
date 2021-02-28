@@ -1,6 +1,7 @@
 ﻿using Furniture_assembly_BusinessLogic.BindingModels;
 using Furniture_assembly_BusinessLogic.Interfaces;
 using Furniture_assembly_BusinessLogic.ViewModels;
+using Furniture_assembly_ListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,7 +105,7 @@ namespace Furniture_assembly_ListImplement.Implements
 
         private Order CreateModel(OrderBindingModel model, Order order)
         {
-            order.ProductId = model.ProductId;
+            order.FurnitureId = model.FurnitureId;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -118,8 +119,8 @@ namespace Furniture_assembly_ListImplement.Implements
             return new OrderViewModel
             {
                 Id = order.Id,
-                ProductId = order.ProductId,
-                ProductName = source.Products.FirstOrDefault(secure => secure.Id == order.ProductId).ProductName,
+                FurnitureId = order.FurnitureId,
+                FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,

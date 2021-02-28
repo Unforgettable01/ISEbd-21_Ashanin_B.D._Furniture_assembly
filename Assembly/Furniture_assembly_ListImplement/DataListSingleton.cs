@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Furniture_assembly_ListImplement.Models;
+using System.Collections.Generic;
 
 namespace Furniture_assembly_ListImplement
 {
@@ -7,12 +8,12 @@ namespace Furniture_assembly_ListImplement
         private static DataListSingleton instance;
         public List<Component> Components { get; set; }
         public List<Order> Orders { get; set; }
-        public List<Product> Products { get; set; }
+        public List<Furniture> Furnitures { get; set; }
         private DataListSingleton()
         {
             Components = new List<Component>();
             Orders = new List<Order>();
-            Products = new List<Product>();
+            Furnitures = new List<Furniture>();
         }
         public static DataListSingleton GetInstance()
         {
@@ -23,4 +24,5 @@ namespace Furniture_assembly_ListImplement
             return instance;
         }
     }
+
 }

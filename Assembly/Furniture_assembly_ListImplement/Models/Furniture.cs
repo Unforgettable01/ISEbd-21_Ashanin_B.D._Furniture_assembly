@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace Furniture_assembly_ListImplement
+namespace Furniture_assembly_ListImplement.Models
 {
     /// <summary>
     /// Изделие, изготавливаемое в магазине
     /// </summary>
-    public class Product
+    public class Furniture
     {
         public int Id { get; set; }
-        public string ProductName { get; set; }
+        public string FurnitureName { get; set; }
         public decimal Price { get; set; }
-        public Dictionary<int, int> ProductComponents { get; set; }
+        public Dictionary<int, int> FurnitureComponents { get; set; }
     }
 }

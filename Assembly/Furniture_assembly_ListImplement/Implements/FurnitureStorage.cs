@@ -1,139 +1,140 @@
 ﻿using Furniture_assembly_BusinessLogic.BindingModels;
 using Furniture_assembly_BusinessLogic.Interfaces;
 using Furniture_assembly_BusinessLogic.ViewModels;
+using Furniture_assembly_ListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Furniture_assembly_ListImplement
+namespace Furniture_assembly_ListImplement.Implements
 {
-    public class ProductStorage : IProductStorage
+    public class FurnitureStorage : IFurnitureStorage
     {
         private readonly DataListSingleton source;
-        public ProductStorage()
+        public FurnitureStorage()
         {
             source = DataListSingleton.GetInstance();
         }
-        public List<ProductViewModel> GetFullList()
+        public List<FurnitureViewModel> GetFullList()
         {
-            List<ProductViewModel> result = new List<ProductViewModel>();
-            foreach (var component in source.Products)
+            List<FurnitureViewModel> result = new List<FurnitureViewModel>();
+            foreach (var component in source.Furnitures)
             {
                 result.Add(CreateModel(component));
             }
             return result;
         }
-        public List<ProductViewModel> GetFilteredList(FurnitureBindingModel model)
+        public List<FurnitureViewModel> GetFilteredList(FurnitureBindingModel model)
         {
             if (model == null)
             {
                 return null;
             }
-            List<ProductViewModel> result = new List<ProductViewModel>();
-            foreach (var product in source.Products)
+            List<FurnitureViewModel> result = new List<FurnitureViewModel>();
+            foreach (var furniture in source.Furnitures)
             {
-                if (product.ProductName.Contains(model.ProductName))
+                if (furniture.FurnitureName.Contains(model.FurnitureName))
                 {
-                    result.Add(CreateModel(product));
+                    result.Add(CreateModel(furniture));
                 }
             }
             return result;
         }
-        public ProductViewModel GetElement(FurnitureBindingModel model)
+        public FurnitureViewModel GetElement(FurnitureBindingModel model)
         {
             if (model == null)
             {
                 return null;
             }
-            foreach (var product in source.Products)
+            foreach (var furniture in source.Furnitures)
             {
-                if (product.Id == model.Id || product.ProductName ==
-                model.ProductName)
+                if (furniture.Id == model.Id || furniture.FurnitureName ==
+                model.FurnitureName)
                 {
-                    return CreateModel(product);
+                    return CreateModel(furniture);
                 }
             }
             return null;
         }
         public void Insert(FurnitureBindingModel model)
         {
-            Product tempProduct = new Product
+            Furniture tempFurniture = new Furniture
             {
                 Id = 1,
-                ProductComponents = new
-            Dictionary<int, int>()
+                FurnitureComponents = new Dictionary<int, int>()
             };
-            foreach (var product in source.Products)
+            foreach (var furniture in source.Furnitures)
             {
-                if (product.Id >= tempProduct.Id)
+                if (furniture.Id >= tempFurniture.Id)
                 {
-                    tempProduct.Id = product.Id + 1;
+                    tempFurniture.Id = furniture.Id + 1;
                 }
             }
-            source.Products.Add(CreateModel(model, tempProduct));
+            source.Furnitures.Add(CreateModel(model, tempFurniture));
         }
         public void Update(FurnitureBindingModel model)
         {
-            Product tempProduct = null;
-            foreach (var product in source.Products)
+            Furniture tempFurniture = null;
+            foreach (var furniture in source.Furnitures)
             {
-                if (product.Id == model.Id)
+                if (furniture.Id == model.Id)
                 {
-                    tempProduct = product;
+                    tempFurniture = furniture;
                 }
             }
-            if (tempProduct == null)
+            if (tempFurniture == null)
             {
                 throw new Exception("Элемент не найден");
             }
-            CreateModel(model, tempProduct);
+            CreateModel(model, tempFurniture);
         }
         public void Delete(FurnitureBindingModel model)
         {
-            for (int i = 0; i < source.Products.Count; ++i)
+            for (int i = 0; i < source.Furnitures.Count; ++i)
             {
-                if (source.Products[i].Id == model.Id)
+                if (source.Furnitures[i].Id == model.Id)
                 {
-                    source.Products.RemoveAt(i);
+                    source.Furnitures.RemoveAt(i);
                     return;
                 }
             }
             throw new Exception("Элемент не найден");
         }
-        private Product CreateModel(FurnitureBindingModel model, Product product)
+        private Furniture CreateModel(FurnitureBindingModel model, Furniture furniture)
         {
-            product.ProductName = model.ProductName;
-            product.Price = model.Price;
+            furniture.FurnitureName = model.FurnitureName;
+            furniture.Price = model.Price;
             // удаляем убранные
-            foreach (var key in product.ProductComponents.Keys.ToList())
+            foreach (var key in furniture.FurnitureComponents.Keys.ToList())
             {
-                if (!model.ProductComponents.ContainsKey(key))
+                if (!model.FurnitureComponents.ContainsKey(key))
                 {
-                    product.ProductComponents.Remove(key);
+                    furniture.FurnitureComponents.Remove(key);
                 }
             }
             // обновляем существуюущие и добавляем новые
-            foreach (var component in model.ProductComponents)
+            foreach (var component in model.FurnitureComponents)
             {
-                if (product.ProductComponents.ContainsKey(component.Key))
+                if (furniture.FurnitureComponents.ContainsKey(component.Key))
                 {
-                    product.ProductComponents[component.Key] =
-                    model.ProductComponents[component.Key].Item2;
+                    furniture.FurnitureComponents[component.Key] =
+                    model.FurnitureComponents[component.Key].Item2;
                 }
                 else
                 {
-                    product.ProductComponents.Add(component.Key,
-                    model.ProductComponents[component.Key].Item2);
+                    furniture.FurnitureComponents.Add(component.Key,
+                    model.FurnitureComponents[component.Key].Item2);
                 }
             }
-            return product;
+            return furniture;
         }
-        private ProductViewModel CreateModel(Product product)
+        private FurnitureViewModel CreateModel(Furniture furniture)
         {
             // требуется дополнительно получить список компонентов для изделия с
             //названиями и их количество
-            Dictionary<int, (string, int)> productComponents = new Dictionary<int, (string, int)>();
-            foreach (var pc in product.ProductComponents)
+            Dictionary<int, (string, int)> furnitureComponents = new
+            Dictionary<int, (string, int)>();
+            foreach (var pc in furniture.FurnitureComponents)
             {
                 string componentName = string.Empty;
                 foreach (var component in source.Components)
@@ -144,16 +145,15 @@ namespace Furniture_assembly_ListImplement
                         break;
                     }
                 }
-                productComponents.Add(pc.Key, (componentName, pc.Value));
+                furnitureComponents.Add(pc.Key, (componentName, pc.Value));
             }
-            return new ProductViewModel
+            return new FurnitureViewModel
             {
-                Id = product.Id,
-                ProductName = product.ProductName,
-                Price = product.Price,
-                ProductComponents = productComponents
+                Id = furniture.Id,
+                FurnitureName = furniture.FurnitureName,
+                Price = furniture.Price,
+                FurnitureComponents = furnitureComponents
             };
         }
     }
-
 }

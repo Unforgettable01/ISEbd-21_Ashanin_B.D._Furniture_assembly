@@ -53,7 +53,6 @@
     <Compile Include="Models\Component.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Furniture.cs" />
-    <Compile Include="Models\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -73,12 +72,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Furniture_assembly_BusinessLogic\Furniture_assembly_BusinessLogic.csproj">
-      <Project>{b7c32e62-fc1e-4ea7-9c8a-87a3ed3db59e}</Project>
-      <Name>Furniture_assembly_BusinessLogic</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

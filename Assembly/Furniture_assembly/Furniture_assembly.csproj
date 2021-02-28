@@ -145,9 +145,9 @@
       <Project>{b7c32e62-fc1e-4ea7-9c8a-87a3ed3db59e}</Project>
       <Name>Furniture_assembly_BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Furniture_assembly_List_Implement\Furniture_assembly_List_Implement.csproj">
-      <Project>{90856ed0-3d18-4b8b-a6ba-4cc49a6ef07a}</Project>
-      <Name>Furniture_assembly_List_Implement</Name>
+    <ProjectReference Include="..\Furniture_assembly_ListImplement\Furniture_assembly_ListImplement.csproj">
+      <Project>{85967bfc-c822-4e34-9ace-dbb458865b66}</Project>
+      <Name>Furniture_assembly_ListImplement</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
