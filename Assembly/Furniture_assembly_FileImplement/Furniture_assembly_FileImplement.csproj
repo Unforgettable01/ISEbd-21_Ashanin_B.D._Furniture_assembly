@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Furniture_assembly_BusinessLogic\Furniture_assembly_BusinessLogic.csproj" />
+  </ItemGroup>
+
+</Project>

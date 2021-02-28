@@ -145,6 +145,10 @@
       <Project>{b7c32e62-fc1e-4ea7-9c8a-87a3ed3db59e}</Project>
       <Name>Furniture_assembly_BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Furniture_assembly_FileImplement\Furniture_assembly_FileImplement.csproj">
+      <Project>{73ff4f57-394d-43ba-a60b-2f1d0386b064}</Project>
+      <Name>Furniture_assembly_FileImplement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Furniture_assembly_ListImplement\Furniture_assembly_ListImplement.csproj">
       <Project>{85967bfc-c822-4e34-9ace-dbb458865b66}</Project>
       <Name>Furniture_assembly_ListImplement</Name>

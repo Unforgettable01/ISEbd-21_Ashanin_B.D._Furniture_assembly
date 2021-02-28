@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture_assembly", "Furni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furniture_assembly_BusinessLogic", "Furniture_assembly_BusinessLogic\Furniture_assembly_BusinessLogic.csproj", "{B7C32E62-FC1E-4EA7-9C8A-87A3ED3DB59E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture_assembly_ListImplement", "Furniture_assembly_ListImplement\Furniture_assembly_ListImplement.csproj", "{85967BFC-C822-4E34-9ACE-DBB458865B66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furniture_assembly_ListImplement", "Furniture_assembly_ListImplement\Furniture_assembly_ListImplement.csproj", "{85967BFC-C822-4E34-9ACE-DBB458865B66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture_assembly_FileImplement", "Furniture_assembly_FileImplement\Furniture_assembly_FileImplement.csproj", "{73FF4F57-394D-43BA-A60B-2F1D0386B064}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{85967BFC-C822-4E34-9ACE-DBB458865B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85967BFC-C822-4E34-9ACE-DBB458865B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85967BFC-C822-4E34-9ACE-DBB458865B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73FF4F57-394D-43BA-A60B-2F1D0386B064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73FF4F57-394D-43BA-A60B-2F1D0386B064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73FF4F57-394D-43BA-A60B-2F1D0386B064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73FF4F57-394D-43BA-A60B-2F1D0386B064}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
