@@ -91,6 +91,12 @@
     <Compile Include="FormFurnitureComponent.Designer.cs">
       <DependentUpon>FormFurnitureComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFurnitures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFurnitures.Designer.cs">
+      <DependentUpon>FormFurnitures.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormComponent.resx">
