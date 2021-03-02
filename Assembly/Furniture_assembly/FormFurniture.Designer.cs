@@ -41,7 +41,7 @@ namespace Furniture_assembly
             this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnComponent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxComponents.SuspendLayout();
@@ -51,18 +51,20 @@ namespace Furniture_assembly
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(14, 12);
+            this.labelName.Location = new System.Drawing.Point(9, 8);
+            this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(87, 20);
+            this.labelName.Size = new System.Drawing.Size(60, 13);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название:";
             // 
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(14, 45);
+            this.labelPrice.Location = new System.Drawing.Point(9, 29);
+            this.labelPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(52, 20);
+            this.labelPrice.Size = new System.Drawing.Size(36, 13);
             this.labelPrice.TabIndex = 1;
             this.labelPrice.Text = "Цена:";
             // 
@@ -73,9 +75,11 @@ namespace Furniture_assembly
             this.groupBoxComponents.Controls.Add(this.buttonDelete);
             this.groupBoxComponents.Controls.Add(this.Update);
             this.groupBoxComponents.Controls.Add(this.buttonSave);
-            this.groupBoxComponents.Location = new System.Drawing.Point(16, 91);
+            this.groupBoxComponents.Location = new System.Drawing.Point(11, 59);
+            this.groupBoxComponents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxComponents.Name = "groupBoxComponents";
-            this.groupBoxComponents.Size = new System.Drawing.Size(1422, 278);
+            this.groupBoxComponents.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxComponents.Size = new System.Drawing.Size(948, 181);
             this.groupBoxComponents.TabIndex = 2;
             this.groupBoxComponents.TabStop = false;
             this.groupBoxComponents.Text = "Компоненты";
@@ -87,22 +91,24 @@ namespace Furniture_assembly
             this.dataGridViewComponents.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewComponents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewComponents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.ColumnId,
             this.ColumnComponent,
             this.ColumnCount});
             this.dataGridViewComponents.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dataGridViewComponents.Location = new System.Drawing.Point(16, 26);
+            this.dataGridViewComponents.Location = new System.Drawing.Point(11, 17);
+            this.dataGridViewComponents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewComponents.Name = "dataGridViewComponents";
             this.dataGridViewComponents.RowHeadersWidth = 62;
             this.dataGridViewComponents.RowTemplate.Height = 28;
-            this.dataGridViewComponents.Size = new System.Drawing.Size(1096, 222);
+            this.dataGridViewComponents.Size = new System.Drawing.Size(731, 144);
             this.dataGridViewComponents.TabIndex = 2;
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(1142, 169);
+            this.buttonUpdate.Location = new System.Drawing.Point(761, 110);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(128, 42);
+            this.buttonUpdate.Size = new System.Drawing.Size(85, 27);
             this.buttonUpdate.TabIndex = 3;
             this.buttonUpdate.Text = "Обновить";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -110,9 +116,10 @@ namespace Furniture_assembly
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(1142, 122);
+            this.buttonDelete.Location = new System.Drawing.Point(761, 79);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(128, 42);
+            this.buttonDelete.Size = new System.Drawing.Size(85, 27);
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -120,9 +127,10 @@ namespace Furniture_assembly
             // 
             // Update
             // 
-            this.Update.Location = new System.Drawing.Point(1142, 74);
+            this.Update.Location = new System.Drawing.Point(761, 48);
+            this.Update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(128, 42);
+            this.Update.Size = new System.Drawing.Size(85, 27);
             this.Update.TabIndex = 1;
             this.Update.Text = "Изменить";
             this.Update.UseVisualStyleBackColor = true;
@@ -130,9 +138,10 @@ namespace Furniture_assembly
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(1142, 26);
+            this.buttonSave.Location = new System.Drawing.Point(761, 17);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(128, 42);
+            this.buttonSave.Size = new System.Drawing.Size(85, 27);
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "Добавить";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -140,9 +149,10 @@ namespace Furniture_assembly
             // 
             // buttonSaveAll
             // 
-            this.buttonSaveAll.Location = new System.Drawing.Point(282, 388);
+            this.buttonSaveAll.Location = new System.Drawing.Point(188, 252);
+            this.buttonSaveAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSaveAll.Name = "buttonSaveAll";
-            this.buttonSaveAll.Size = new System.Drawing.Size(180, 49);
+            this.buttonSaveAll.Size = new System.Drawing.Size(120, 32);
             this.buttonSaveAll.TabIndex = 3;
             this.buttonSaveAll.Text = "Сохранить";
             this.buttonSaveAll.UseCompatibleTextRendering = true;
@@ -151,9 +161,10 @@ namespace Furniture_assembly
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(468, 388);
+            this.buttonCancel.Location = new System.Drawing.Point(312, 252);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(180, 49);
+            this.buttonCancel.Size = new System.Drawing.Size(120, 32);
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Отменить";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -161,25 +172,27 @@ namespace Furniture_assembly
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(102, 45);
+            this.textBoxPrice.Location = new System.Drawing.Point(68, 29);
+            this.textBoxPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(294, 26);
+            this.textBoxPrice.Size = new System.Drawing.Size(197, 20);
             this.textBoxPrice.TabIndex = 5;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(102, 12);
+            this.textBoxName.Location = new System.Drawing.Point(68, 8);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(294, 26);
+            this.textBoxName.Size = new System.Drawing.Size(197, 20);
             this.textBoxName.TabIndex = 6;
             // 
-            // Column1
+            // ColumnId
             // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            this.Column1.Width = 150;
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.MinimumWidth = 8;
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.Visible = false;
+            this.ColumnId.Width = 150;
             // 
             // ColumnComponent
             // 
@@ -197,9 +210,9 @@ namespace Furniture_assembly
             // 
             // FormFurniture
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1508, 449);
+            this.ClientSize = new System.Drawing.Size(1005, 292);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.buttonCancel);
@@ -207,6 +220,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.groupBoxComponents);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelName);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormFurniture";
             this.Text = "Изделие";
             this.Load += new System.EventHandler(this.FormFurniture_Load);
@@ -231,7 +245,7 @@ namespace Furniture_assembly
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnComponent;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCount;
     }
