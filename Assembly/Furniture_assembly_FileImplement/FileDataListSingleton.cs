@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 
 
 namespace Furniture_assembly_FileImplement
@@ -71,10 +70,36 @@ namespace Furniture_assembly_FileImplement
             return list;
         }
 
+        private List<Furniture> LoadFurnitures()
+        {
+            var list = new List<Furniture>();
+            if (File.Exists(FurnitureFileName))
+            {
+                XDocument xDocument = XDocument.Load(FurnitureFileName);
+                var xElements = xDocument.Root.Elements("Furniture").ToList();
+                foreach (var elem in xElements)
+                {
+                    var furnComp = new Dictionary<int, int>();
+                    foreach (var component in
+                   elem.Element("FurnitureComponents").Elements("FurnitureComponent").ToList())
+                    {
+                        furnComp.Add(Convert.ToInt32(component.Element("Key").Value),
+                        Convert.ToInt32(component.Element("Value").Value));
+                    }
+                    list.Add(new Furniture
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        FurnitureName = elem.Element("FurnitureName").Value,
+                        Price = Convert.ToDecimal(elem.Element("Price").Value),
+                        FurnitureComponents = furnComp
+                    });
+                }
+            }
+            return list;
+        }
         private List<Order> LoadOrders()
         {
             var list = new List<Order>();
-
             if (File.Exists(OrderFileName))
             {
                 XDocument xDocument = XDocument.Load(OrderFileName);
@@ -82,7 +107,7 @@ namespace Furniture_assembly_FileImplement
                 var xElements = xDocument.Root.Elements("Order").ToList();
 
                 foreach (var elem in xElements)
-                {
+                {               
                     list.Add(new Order
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
@@ -91,37 +116,7 @@ namespace Furniture_assembly_FileImplement
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
                         Status = (OrderStatus)Convert.ToInt32(elem.Element("Status").Value),
                         DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
-                        DateImplement = (!string.IsNullOrEmpty(elem.Element("DateCreate").Value)) ? Convert.ToDateTime(elem.Element("DateCreate").Value) : (DateTime?)null
-                    });
-                }
-            }
-            return list;
-        }
-
-        private List<Furniture> LoadFurnitures()
-        {
-            var list = new List<Furniture>();
-
-            if (File.Exists(FurnitureFileName))
-            {
-                XDocument xDocument = XDocument.Load(FurnitureFileName);
-
-                var xElements = xDocument.Root.Elements("Secure").ToList();
-
-                foreach (var elem in xElements)
-                {
-                    var prodComp = new Dictionary<int, int>();
-                    foreach (var component in elem.Element("FurnitureComponents").Elements("FurnitureComponent").ToList())
-                    {
-                        prodComp.Add(Convert.ToInt32(component.Element("Key").Value),
-                            Convert.ToInt32(component.Element("Value").Value));
-                    }
-                    list.Add(new Furniture
-                    {
-                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        FurnitureName = elem.Element("FurnitureName").Value,
-                        Price = Convert.ToDecimal(elem.Element("Price").Value),
-                        FurnitureComponents = prodComp
+                        DateImplement = (!string.IsNullOrEmpty(elem.Element("DateImplement").Value)) ? Convert.ToDateTime(elem.Element("DateImplement").Value) : (DateTime?)null
                     });
                 }
             }
@@ -143,27 +138,6 @@ namespace Furniture_assembly_FileImplement
                 xDocument.Save(ComponentFileName);
             }
         }
-
-        private void SaveOrders()
-        {
-            if (Orders != null)
-            {
-                var xElement = new XElement("Orders");
-
-                foreach (var order in Orders)
-                {
-                    xElement.Add(new XElement("Order",
-                        new XAttribute("Id", order.Id),
-                        new XElement("FurnitureId", order.FurnitureId),
-                        new XElement("Count", order.Count),
-                        new XElement("Sum", order.Sum),
-                        new XElement("Status", (int)order.Status),
-                        new XElement("DateCreate", order.DateCreate),
-                        new XElement("DateImplement", order.DateImplement)));
-                }
-            }
-        }
-
         private void SaveFurnitures()
         {
             if (Furnitures != null)
@@ -187,6 +161,31 @@ namespace Furniture_assembly_FileImplement
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(FurnitureFileName);
             }
+
         }
+        private void SaveOrders()
+        {
+            if (Orders != null)
+            {
+                var xElement = new XElement("Orders");
+
+                foreach (var order in Orders)
+                {
+                    xElement.Add(new XElement("Order",
+                        new XAttribute("Id", order.Id),
+                        new XElement("FurnitureId", order.FurnitureId),
+                        new XElement("Count", order.Count),
+                        new XElement("Sum", order.Sum),
+                        new XElement("Status", (int)order.Status),
+                        new XElement("DateCreate", order.DateCreate),
+                        new XElement("DateImplement", order.DateImplement)));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(OrderFileName);
+            }
+            
+        }
+
+        
     }
 }

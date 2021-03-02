@@ -47,7 +47,7 @@ namespace Furniture_assembly
         }
         private void ИзделияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormFurniture>();
+            var form = Container.Resolve<FormFurnitures>();
             form.ShowDialog();
         }
         private void ButtonCreateOrder_Click(object sender, EventArgs e)
