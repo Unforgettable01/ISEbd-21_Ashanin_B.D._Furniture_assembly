@@ -102,7 +102,7 @@
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridView);
-            this.Name = "FormSecures";
+            this.Name = "FormFurnitures";
             this.Text = "Комплектации";
             this.Load += new System.EventHandler(this.FormSecures_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
