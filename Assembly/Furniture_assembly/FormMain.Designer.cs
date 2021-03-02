@@ -120,7 +120,11 @@ namespace Furniture_assembly
             this.menuStripCatalog.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.menuStripCatalog.Size = new System.Drawing.Size(1112, 24);
             this.menuStripCatalog.TabIndex = 6;
+
             this.menuStripCatalog.Text = "Каталог";
+
+            this.menuStripCatalog.Text = "Catalog";
+
             // 
             // справочникиToolStripMenuItem
             // 
@@ -134,14 +138,22 @@ namespace Furniture_assembly
             // изделияToolStripMenuItem
             // 
             this.изделияToolStripMenuItem.Name = "изделияToolStripMenuItem";
+
             this.изделияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+          
+            this.изделияToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+
             this.изделияToolStripMenuItem.Text = "Изделия";
             this.изделияToolStripMenuItem.Click += new System.EventHandler(this.ИзделияToolStripMenuItem_Click);
             // 
             // компонентыToolStripMenuItem
             // 
             this.компонентыToolStripMenuItem.Name = "компонентыToolStripMenuItem";
+
             this.компонентыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+
+            this.компонентыToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+
             this.компонентыToolStripMenuItem.Text = "Компоненты";
             this.компонентыToolStripMenuItem.Click += new System.EventHandler(this.КомпонентыToolStripMenuItem_Click);
             // 
