@@ -30,10 +30,10 @@ namespace Furniture_assembly
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.SaveToExel = new System.Windows.Forms.Button();
             this.Component = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Furniture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaveToExel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,15 +51,6 @@ namespace Furniture_assembly
             this.dataGridView.RowTemplate.Height = 28;
             this.dataGridView.Size = new System.Drawing.Size(801, 421);
             this.dataGridView.TabIndex = 0;
-            // 
-            // SaveToExel
-            // 
-            this.SaveToExel.Location = new System.Drawing.Point(13, 2);
-            this.SaveToExel.Name = "SaveToExel";
-            this.SaveToExel.Size = new System.Drawing.Size(178, 32);
-            this.SaveToExel.TabIndex = 1;
-            this.SaveToExel.Text = "Сохранить в Exel";
-            this.SaveToExel.UseVisualStyleBackColor = true;
             // 
             // Component
             // 
@@ -81,6 +72,16 @@ namespace Furniture_assembly
             this.Col.HeaderText = "Количество";
             this.Col.MinimumWidth = 8;
             this.Col.Name = "Col";
+            // 
+            // SaveToExel
+            // 
+            this.SaveToExel.Location = new System.Drawing.Point(13, 2);
+            this.SaveToExel.Name = "SaveToExel";
+            this.SaveToExel.Size = new System.Drawing.Size(178, 32);
+            this.SaveToExel.TabIndex = 1;
+            this.SaveToExel.Text = "Сохранить в Exel";
+            this.SaveToExel.UseVisualStyleBackColor = true;
+            this.SaveToExel.Click += new System.EventHandler(this.ButtonSaveToExcel_Click);
             // 
             // FormReportFurnitureComponents
             // 

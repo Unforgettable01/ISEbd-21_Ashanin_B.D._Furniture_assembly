@@ -235,6 +235,12 @@
     <Compile Include="FormReportFurnitureComponents.Designer.cs">
       <DependentUpon>FormReportFurnitureComponents.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportOrders.Designer.cs">
+      <DependentUpon>FormReportOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -258,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportFurnitureComponents.resx">
       <DependentUpon>FormReportFurnitureComponents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportOrders.resx">
+      <DependentUpon>FormReportOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -293,6 +302,8 @@
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ComponentViewModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.FurnitureViewModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.OrderViewModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ReportFurnitureComponentViewModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ReportOrdersViewModel.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -93,7 +93,7 @@ WordParagraphProperties {Bold = true, Size = "24", } ) },
                 }
                 return docParagraph;
             }
-        return null;
+            return null;
         }
         /// <summary>
         /// Задание форматирования для абзаца

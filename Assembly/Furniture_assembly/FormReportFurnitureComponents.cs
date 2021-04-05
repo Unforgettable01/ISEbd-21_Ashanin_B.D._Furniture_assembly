@@ -13,8 +13,8 @@ namespace Furniture_assembly
         private readonly ReportLogic logic;
         public FormReportFurnitureComponents(ReportLogic logic)
         {
-            InitializeComponent(); 
-        this.logic = logic;
+            InitializeComponent();
+            this.logic = logic;
         }
         private void FormReportFurnitureComponents_Load(object sender, EventArgs e)
         {
