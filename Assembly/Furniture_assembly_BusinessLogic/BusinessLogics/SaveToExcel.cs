@@ -68,11 +68,11 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                         ShareStringPart = shareStringPart,
                         ColumnName = "A",
                         RowIndex = rowIndex,
-                        Text = fr.ComponentName,
+                        Text = fr.FurnitureName,
                         StyleIndex = 0U
                     });
                     rowIndex++;
-                    foreach (var furniture in fr.Furnitures)
+                    foreach (var component in fr.Components)
                     {
                         InsertCellInWorksheet(new ExcelCellParameters
                         {
@@ -80,7 +80,7 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                             ShareStringPart = shareStringPart,
                             ColumnName = "B",
                             RowIndex = rowIndex,
-                            Text = furniture.Item1,
+                            Text = component.Item1,
                             StyleIndex = 1U
                         });
                         InsertCellInWorksheet(new ExcelCellParameters
@@ -89,7 +89,7 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                             ShareStringPart = shareStringPart,
                             ColumnName = "C",
                             RowIndex = rowIndex,
-                            Text = furniture.Item2.ToString(),
+                            Text = component.Item2.ToString(),
                             StyleIndex = 1U
                         });
                         rowIndex++;

@@ -15,33 +15,34 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         public static void CreateDoc(WordInfo info)
         {
             using (WordprocessingDocument wordDocument =
-           WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
+            WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
             {
                 MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
                 mainPart.Document = new Document();
                 Body docBody = mainPart.Document.AppendChild(new Body());
                 docBody.AppendChild(CreateParagraph(new WordParagraph
                 {
-                    Texts = new List<(string, WordParagraphProperties)> { (info.Title, new
-WordParagraphProperties {Bold = true, Size = "24", } ) },
-                    TextProperties = new WordParagraphProperties
+                    Texts = new List<(string, WordTextProperties)> { (info.Title, new WordTextProperties { Bold = true, Size = "24", }) },
+                    TextProperties = new WordTextProperties
                     {
                         Size = "24",
                         JustificationValues = JustificationValues.Center
                     }
                 }));
-                foreach (var component in info.Components)
+
+                foreach (var furniture in info.Furnitures)
                 {
                     docBody.AppendChild(CreateParagraph(new WordParagraph
                     {
-                        Texts = new List<(string, WordParagraphProperties)> {
-(component.ComponentName, new WordParagraphProperties { Size = "24", }) },
-                        TextProperties = new WordParagraphProperties
+                        Texts = new List<(string, WordTextProperties)> {
+                    (furniture.FurnitureName + " : ", new WordTextProperties {Bold = true, Size = "24", }),
+                        (furniture.Price.ToString(), new WordTextProperties {Bold = false, Size = "24", }) },
+                        TextProperties = new WordTextProperties
                         {
                             Size = "24",
                             JustificationValues = JustificationValues.Both
                         }
-                    }));
+                    })); ;
                 }
                 docBody.AppendChild(CreateSectionProperties());
                 wordDocument.MainDocumentPart.Document.Save();
@@ -71,7 +72,6 @@ WordParagraphProperties {Bold = true, Size = "24", } ) },
             if (paragraph != null)
             {
                 Paragraph docParagraph = new Paragraph();
-
                 docParagraph.AppendChild(CreateParagraphProperties(paragraph.TextProperties));
                 foreach (var run in paragraph.Texts)
                 {
@@ -87,7 +87,7 @@ WordParagraphProperties {Bold = true, Size = "24", } ) },
                     {
                         Text = run.Item1,
                         Space =
-                   SpaceProcessingModeValues.Preserve
+                    SpaceProcessingModeValues.Preserve
                     });
                     docParagraph.AppendChild(docRun);
                 }
@@ -100,8 +100,7 @@ WordParagraphProperties {Bold = true, Size = "24", } ) },
         /// </summary>
         /// <param name="paragraphProperties"></param>
         /// <returns></returns>
-        private static ParagraphProperties CreateParagraphProperties(WordParagraphProperties
-       paragraphProperties)
+        private static ParagraphProperties CreateParagraphProperties(WordTextProperties paragraphProperties)
         {
             if (paragraphProperties != null)
             {
@@ -116,13 +115,13 @@ WordParagraphProperties {Bold = true, Size = "24", } ) },
                 });
                 properties.AppendChild(new Indentation());
                 ParagraphMarkRunProperties paragraphMarkRunProperties = new
-               ParagraphMarkRunProperties();
+                ParagraphMarkRunProperties();
                 if (!string.IsNullOrEmpty(paragraphProperties.Size))
                 {
                     paragraphMarkRunProperties.AppendChild(new FontSize
                     {
                         Val =
-                   paragraphProperties.Size
+                    paragraphProperties.Size
                     });
                 }
                 properties.AppendChild(paragraphMarkRunProperties);

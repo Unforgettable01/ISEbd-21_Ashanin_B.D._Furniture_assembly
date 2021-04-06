@@ -4,8 +4,8 @@ namespace Furniture_assembly_BusinessLogic.HelperModels
 {
     class WordParagraph
     {
-        public List<(string, WordParagraphProperties)> Texts { get; set; }
+        public List<(string, WordTextProperties)> Texts { get; set; }
 
-        public WordParagraphProperties TextProperties { get; set; }
+        public WordTextProperties TextProperties { get; set; }
     }
 }

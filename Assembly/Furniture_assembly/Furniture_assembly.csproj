@@ -277,7 +277,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FormComponent.datasource" />
     <None Include="Properties\DataSources\FormComponents.datasource" />

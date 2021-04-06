@@ -30,20 +30,20 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             var components = _componentStorage.GetFullList();
             var furnitures = _furnitureStorage.GetFullList();
             var list = new List<ReportFurnitureComponentViewModel>();
-            foreach (var component in components)
+            foreach (var furniture in furnitures)
             {
                 var record = new ReportFurnitureComponentViewModel
                 {
-                    ComponentName = component.ComponentName,
-                    Furnitures = new List<Tuple<string, int>>(),
+                    FurnitureName = furniture.FurnitureName,
+                    Components = new List<Tuple<string, int>>(),
                     TotalCount = 0
                 };
-                foreach (var furniture in furnitures)
+                foreach (var component in components)
                 {
                     if (furniture.FurnitureComponents.ContainsKey(component.Id))
                     {
 
-                        record.Furnitures.Add(new Tuple<string, int>(furniture.FurnitureName,
+                        record.Components.Add(new Tuple<string, int>(component.ComponentName,
                          furniture.FurnitureComponents[component.Id].Item2));
                         record.TotalCount += furniture.FurnitureComponents[component.Id].Item2;
                     }
@@ -84,7 +84,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             {
                 FileName = model.FileName,
                 Title = "Список компонент",
-                Components = _componentStorage.GetFullList()
+                Furnitures = _furnitureStorage.GetFullList()
             });
         }
         /// <summary>

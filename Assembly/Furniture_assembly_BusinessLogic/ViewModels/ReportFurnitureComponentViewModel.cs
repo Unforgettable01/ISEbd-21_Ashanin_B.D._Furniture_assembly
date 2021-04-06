@@ -5,9 +5,9 @@ namespace Furniture_assembly_BusinessLogic.ViewModels
 {
     public class ReportFurnitureComponentViewModel
     {
-        public string ComponentName { get; set; }
+        public string FurnitureName { get; set; }
         public int TotalCount { get; set; }
-        public List<Tuple<string, int>> Furnitures { get; set; }
+        public List<Tuple<string, int>> Components { get; set; }
     }
 
 }

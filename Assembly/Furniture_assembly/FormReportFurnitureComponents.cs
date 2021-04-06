@@ -26,9 +26,9 @@ namespace Furniture_assembly
                     dataGridView.Rows.Clear();
                     foreach (var elem in dict)
                     {
-                        dataGridView.Rows.Add(new object[] { elem.ComponentName, "", ""
+                        dataGridView.Rows.Add(new object[] { elem.FurnitureName, "", ""
 });
-                        foreach (var listElem in elem.Furnitures)
+                        foreach (var listElem in elem.Components)
                         {
                             dataGridView.Rows.Add(new object[] { "", listElem.Item1,
 listElem.Item2 });

@@ -76,7 +76,7 @@ namespace Furniture_assembly
             // 
             // reportViewer
             // 
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "Furniture_assembly.Report1.rdlc";
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "Furniture_assembly.Report.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(1, 39);
             this.reportViewer.Margin = new System.Windows.Forms.Padding(2);
             this.reportViewer.Name = "reportViewer";

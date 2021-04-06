@@ -2,7 +2,7 @@
 
 namespace Furniture_assembly_BusinessLogic.HelperModels
 {
-    class WordParagraphProperties
+    class WordTextProperties
     {
         public string Size { get; set; }
         public bool Bold { get; set; }
