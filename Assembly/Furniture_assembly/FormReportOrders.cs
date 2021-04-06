@@ -87,6 +87,11 @@ namespace Furniture_assembly
                 }
             }
         }
+
+        private void FormReportOrders_Load(object sender, EventArgs e)
+        {
+            this.reportViewer.RefreshReport();
+        }
     }
 
 }

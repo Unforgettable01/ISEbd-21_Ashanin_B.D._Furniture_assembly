@@ -81,7 +81,7 @@ namespace Furniture_assembly
             this.reportViewer.Margin = new System.Windows.Forms.Padding(2);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(531, 257);
+            this.reportViewer.Size = new System.Drawing.Size(521, 257);
             this.reportViewer.TabIndex = 4;
             // 
             // FormReportOrders
@@ -97,6 +97,7 @@ namespace Furniture_assembly
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormReportOrders";
             this.Text = "FormReportOrders";
+            this.Load += new System.EventHandler(this.FormReportOrders_Load);
             this.ResumeLayout(false);
 
         }

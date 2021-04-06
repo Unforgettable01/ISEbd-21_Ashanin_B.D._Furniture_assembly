@@ -8,5 +8,6 @@ namespace Furniture_assembly_BusinessLogic.HelperModels
         public string FileName { get; set; }
         public string Title { get; set; }
         public List<ReportFurnitureComponentViewModel> FurnitureComponents { get; set; }
+
     }
 }

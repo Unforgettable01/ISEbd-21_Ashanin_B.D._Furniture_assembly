@@ -31,7 +31,7 @@
         </Field>
         <Field Name="Status">
           <DataField>Status</DataField>
-          <rd:TypeName>Furniture_assembly_BusinessLogic.Enums.OrderStatus</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Sum">
           <DataField>Sum</DataField>
@@ -475,7 +475,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Sum.Value, "DataSetOrders")</Value>
+                    <Value>=Sum(Fields!Sum.Value, "DataSetOrders")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>

@@ -30,10 +30,10 @@ namespace Furniture_assembly
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.SaveToExel = new System.Windows.Forms.Button();
             this.Component = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Furniture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SaveToExel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +45,24 @@ namespace Furniture_assembly
             this.Component,
             this.Furniture,
             this.Col});
-            this.dataGridView.Location = new System.Drawing.Point(-2, 31);
+            this.dataGridView.Location = new System.Drawing.Point(-1, 20);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 28;
-            this.dataGridView.Size = new System.Drawing.Size(801, 421);
+            this.dataGridView.Size = new System.Drawing.Size(534, 274);
             this.dataGridView.TabIndex = 0;
+            // 
+            // SaveToExel
+            // 
+            this.SaveToExel.Location = new System.Drawing.Point(9, 1);
+            this.SaveToExel.Margin = new System.Windows.Forms.Padding(2);
+            this.SaveToExel.Name = "SaveToExel";
+            this.SaveToExel.Size = new System.Drawing.Size(119, 21);
+            this.SaveToExel.TabIndex = 1;
+            this.SaveToExel.Text = "Сохранить в Exel";
+            this.SaveToExel.UseVisualStyleBackColor = true;
+            this.SaveToExel.Click += new System.EventHandler(this.ButtonSaveToExcel_Click);
             // 
             // Component
             // 
@@ -73,25 +85,17 @@ namespace Furniture_assembly
             this.Col.MinimumWidth = 8;
             this.Col.Name = "Col";
             // 
-            // SaveToExel
-            // 
-            this.SaveToExel.Location = new System.Drawing.Point(13, 2);
-            this.SaveToExel.Name = "SaveToExel";
-            this.SaveToExel.Size = new System.Drawing.Size(178, 32);
-            this.SaveToExel.TabIndex = 1;
-            this.SaveToExel.Text = "Сохранить в Exel";
-            this.SaveToExel.UseVisualStyleBackColor = true;
-            this.SaveToExel.Click += new System.EventHandler(this.ButtonSaveToExcel_Click);
-            // 
             // FormReportFurnitureComponents
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(534, 292);
             this.Controls.Add(this.SaveToExel);
             this.Controls.Add(this.dataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormReportFurnitureComponents";
             this.Text = "FormReportProductComponents";
+            this.Load += new System.EventHandler(this.FormReportFurnitureComponents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

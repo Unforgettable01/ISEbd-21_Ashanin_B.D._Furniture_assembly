@@ -1,4 +1,5 @@
 ﻿using Furniture_assembly_BusinessLogic.BindingModels;
+using Furniture_assembly_BusinessLogic.Enums;
 using Furniture_assembly_BusinessLogic.HelperModels;
 using Furniture_assembly_BusinessLogic.Interfaces;
 using Furniture_assembly_BusinessLogic.ViewModels;
@@ -41,10 +42,10 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                 {
                     if (furniture.FurnitureComponents.ContainsKey(component.Id))
                     {
+
                         record.Furnitures.Add(new Tuple<string, int>(furniture.FurnitureName,
-                       furniture.FurnitureComponents[component.Id].Item2));
-                        record.TotalCount +=
-                       furniture.FurnitureComponents[component.Id].Item2;
+                         furniture.FurnitureComponents[component.Id].Item2));
+                        record.TotalCount += furniture.FurnitureComponents[component.Id].Item2;
                     }
                 }
                 list.Add(record);
@@ -60,8 +61,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         {
             return _orderStorage.GetFilteredList(new OrderBindingModel
             {
-                DateFrom =
-           model.DateFrom,
+                DateFrom = model.DateFrom,
                 DateTo = model.DateTo
             })
             .Select(x => new ReportOrdersViewModel
@@ -70,7 +70,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                 FurnitureName = x.FurnitureName,
                 Count = x.Count,
                 Sum = x.Sum,
-                Status = x.Status
+                Status = ((OrderStatus)Enum.Parse(typeof(OrderStatus),x.Status.ToString())).ToString()
             })
            .ToList();
         }
@@ -96,7 +96,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             SaveToExcel.CreateDoc(new ExcelInfo
             {
                 FileName = model.FileName,
-                Title = "Список компонент",
+                Title = "Список изделий",
                 FurnitureComponents = GetFurnitureComponent()
             });
         }

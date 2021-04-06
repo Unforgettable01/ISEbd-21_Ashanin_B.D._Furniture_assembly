@@ -91,8 +91,8 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                             RowIndex = rowIndex,
                             Text = furniture.Item2.ToString(),
                             StyleIndex = 1U
-                        }); 
-                    rowIndex++;
+                        });
+                        rowIndex++;
                     }
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
