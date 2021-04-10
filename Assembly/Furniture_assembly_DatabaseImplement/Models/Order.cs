@@ -10,6 +10,7 @@ namespace Furniture_assembly_DatabaseImplement.Models
     public class Order
     {
         public int Id { get; set; }
+        public int ClientId { get; set; }
         public int FurnitureId { get; set; }
         [Required]
         public int Count { get; set; }
@@ -21,6 +22,7 @@ namespace Furniture_assembly_DatabaseImplement.Models
         public DateTime DateCreate { get; set; }
         public DateTime? DateImplement { get; set; }
         public virtual Furniture Furniture { get; set; }
+        public virtual Client Client { get; set; }
     }
 
 }

@@ -2,6 +2,7 @@
 using Furniture_assembly_BusinessLogic.Interfaces;
 using Furniture_assembly_BusinessLogic.ViewModels;
 using Furniture_assembly_DatabaseImplement.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,11 @@ namespace Furniture_assembly_DatabaseImplement.Implements
         {
             using (var context = new Furniture_assembly_Database())
             {
-                return context.Orders.Select(rec => new OrderViewModel
-                {
-                    Id = rec.Id,
-                    FurnitureName = context.Furnitures.FirstOrDefault(r => r.Id == rec.FurnitureId).FurnitureName,
-                    FurnitureId = rec.FurnitureId,
-                    Count = rec.Count,
-                    Sum = rec.Sum,
-                    Status = rec.Status,
-                    DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement
-                }).ToList();
+                     return context.Orders
+                    .Include(rec => rec.Furniture)
+                    .Include(rec => rec.Client)
+                    .Select(CreateModel)
+                    .ToList();
             }
         }
 
@@ -36,17 +31,14 @@ namespace Furniture_assembly_DatabaseImplement.Implements
             }
             using (var context = new Furniture_assembly_Database())
             {
-                return context.Orders.Where(rec => rec.Id.Equals(model.Id)|| (rec.DateCreate>= model.DateFrom && rec.DateCreate<=model.DateTo)).Select(rec => new OrderViewModel
-                {
-                    Id = rec.Id,
-                    FurnitureName = context.Furnitures.FirstOrDefault(r => r.Id == rec.FurnitureId).FurnitureName,
-                    FurnitureId = rec.FurnitureId,
-                    Count = rec.Count,
-                    Sum = rec.Sum,
-                    Status = rec.Status,
-                    DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement
-                }).ToList();
+                return context.Orders
+                     .Where(rec => (!model.DateFrom.HasValue && !model.DateTo.HasValue && rec.DateCreate.Date == model.DateCreate.Date)
+                     || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate.Date >= model.DateFrom.Value.Date && rec.DateCreate.Date <= model.DateTo.Value.Date)
+                     || (model.ClientId.HasValue && rec.ClientId == model.ClientId))
+                     .Include(rec => rec.Furniture)
+                     .Include(rec => rec.Client)
+                     .Select(CreateModel)
+                     .ToList();
             }
         }
 
@@ -142,12 +134,29 @@ namespace Furniture_assembly_DatabaseImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order, Furniture_assembly_Database context)
         {
             order.FurnitureId = model.FurnitureId;
+            order.ClientId = Convert.ToInt32(model.ClientId);
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
             return order;
+        }
+        private OrderViewModel CreateModel(Order order)
+        {
+            return new OrderViewModel
+            {
+                Id = order.Id,
+                ClientId = order.ClientId,
+                FurnitureId = order.FurnitureId,
+                ClientFIO = order.Client.ClientFIO,
+                FurnitureName = order.Furniture.FurnitureName,
+                Count = order.Count,
+                Sum = order.Sum,
+                Status = order.Status,
+                DateCreate = order.DateCreate,
+                DateImplement = order?.DateImplement
+            };
         }
     }
 }

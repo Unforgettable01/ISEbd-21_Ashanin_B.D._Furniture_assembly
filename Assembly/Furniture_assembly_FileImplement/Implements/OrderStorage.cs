@@ -29,7 +29,12 @@ namespace Furniture_assembly_FileImplement.Implements
             {
                 return null;
             }
-            return source.Orders.Where(rec => rec.Id == model.Id).Select(CreateModel).ToList();
+            return source.Orders
+               .Where(rec => (!model.DateFrom.HasValue && !model.DateTo.HasValue && rec.DateCreate.Date == model.DateCreate.Date)
+               || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate.Date >= model.DateFrom.Value.Date && rec.DateCreate.Date <= model.DateTo.Value.Date)
+               || (model.ClientId.HasValue && rec.ClientId == model.ClientId))
+               .Select(CreateModel)
+               .ToList();
         }
 
         public OrderViewModel GetElement(OrderBindingModel model)
@@ -75,6 +80,7 @@ namespace Furniture_assembly_FileImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.FurnitureId = model.FurnitureId;
+            order.ClientId = model.ClientId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -89,6 +95,8 @@ namespace Furniture_assembly_FileImplement.Implements
             {
                 Id = order.Id,
                 FurnitureId = order.FurnitureId,
+                ClientId = order.ClientId,
+                ClientFIO = string.Empty,
                 FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
                 Count = order.Count,
                 Sum = order.Sum,

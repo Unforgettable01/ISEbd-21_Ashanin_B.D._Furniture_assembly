@@ -36,7 +36,9 @@ namespace Furniture_assembly_ListImplement.Implements
             List<OrderViewModel> result = new List<OrderViewModel>();
             foreach (var order in source.Orders)
             {
-                if (order.DateCreate.Equals(model.DateCreate))
+                if ((!model.DateFrom.HasValue && !model.DateTo.HasValue && order.DateCreate.Date == model.DateCreate.Date)
+                     || (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate.Date >= model.DateFrom.Value.Date && order.DateCreate.Date <= model.DateTo.Value.Date)
+                     || (model.ClientId.HasValue && order.ClientId == model.ClientId))
                 {
                     result.Add(CreateModel(order));
                 }
@@ -106,6 +108,7 @@ namespace Furniture_assembly_ListImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.FurnitureId = model.FurnitureId;
+            order.ClientId = model.ClientId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -120,6 +123,8 @@ namespace Furniture_assembly_ListImplement.Implements
             {
                 Id = order.Id,
                 FurnitureId = order.FurnitureId,
+                ClientId = order.ClientId,
+                ClientFIO = string.Empty,
                 FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
                 Count = order.Count,
                 Sum = order.Sum,
