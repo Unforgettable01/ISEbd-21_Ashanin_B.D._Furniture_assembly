@@ -37,6 +37,7 @@ namespace Furniture_assembly
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelFurnitures
@@ -92,7 +93,7 @@ namespace Furniture_assembly
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(21, 160);
+            this.buttonSave.Location = new System.Drawing.Point(17, 206);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(300, 42);
             this.buttonSave.TabIndex = 6;
@@ -102,7 +103,7 @@ namespace Furniture_assembly
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(327, 160);
+            this.buttonCancel.Location = new System.Drawing.Point(323, 206);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(300, 42);
             this.buttonCancel.TabIndex = 7;
@@ -110,11 +111,21 @@ namespace Furniture_assembly
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
+            // comboBoxClient
+            // 
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(130, 157);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(461, 28);
+            this.comboBoxClient.TabIndex = 8;
+            this.comboBoxClient.SelectedIndexChanged += new System.EventHandler(this.ComboBoxProduct_SelectedIndexChanged);
+            // 
             // FormCreateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 230);
+            this.ClientSize = new System.Drawing.Size(666, 324);
+            this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxSum);
@@ -141,5 +152,6 @@ namespace Furniture_assembly
         private System.Windows.Forms.TextBox textBoxSum;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ComboBox comboBoxClient;
     }
 }

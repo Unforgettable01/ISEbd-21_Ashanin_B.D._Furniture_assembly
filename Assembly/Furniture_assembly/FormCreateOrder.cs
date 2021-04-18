@@ -14,24 +14,27 @@ namespace Furniture_assembly
         public new IUnityContainer Container { get; set; }
         private readonly FurnitureLogic _logicP;
         private readonly OrderLogic _logicO;
-        public FormCreateOrder(FurnitureLogic logicP, OrderLogic logicO)
+        private readonly ClientLogic _logicClient;
+
+        public FormCreateOrder(FurnitureLogic logicP, OrderLogic logicO, ClientLogic logicClient)
         {
             InitializeComponent();
             _logicP = logicP;
             _logicO = logicO;
+            _logicClient = logicClient;
         }
         private void FormCreateOrder_Load(object sender, EventArgs e)
         {
             try
             {
-                List<FurnitureViewModel> list = _logicP.Read(null);
-                if (list != null)
-                {
-                    comboBoxFurniture.DisplayMember = "FurnitureName";
-                    comboBoxFurniture.ValueMember = "Id";
-                    comboBoxFurniture.DataSource = list;
-                    comboBoxFurniture.SelectedItem = null;
-                }
+                var furnitures = _logicP.Read(null);
+                var clients = _logicClient.Read(null);
+                comboBoxFurniture.DataSource = furnitures;
+                comboBoxFurniture.DisplayMember = "FurnitureName";
+                comboBoxFurniture.ValueMember = "Id";
+                comboBoxClient.DataSource = clients;
+                comboBoxClient.DisplayMember = "ClientFIO";
+                comboBoxClient.ValueMember = "Id";
             }
             catch (Exception ex)
             {
@@ -88,6 +91,7 @@ namespace Furniture_assembly
                 {
                     FurnitureId = Convert.ToInt32(comboBoxFurniture.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
+                    ClientId = Convert.ToInt32(comboBoxClient.SelectedValue),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",

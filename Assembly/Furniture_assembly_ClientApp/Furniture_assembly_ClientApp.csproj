@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Furniture_assembly_BusinessLogic\Furniture_assembly_BusinessLogic.csproj" />
+    <ProjectReference Include="..\Furniture_assembly_DatabaseImplement\Furniture_assembly_DatabaseImplement.csproj" />
+  </ItemGroup>
+
+</Project>

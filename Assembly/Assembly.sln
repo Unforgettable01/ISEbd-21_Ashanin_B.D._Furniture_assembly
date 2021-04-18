@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furniture_assembly_ListImpl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furniture_assembly_FileImplement", "Furniture_assembly_FileImplement\Furniture_assembly_FileImplement.csproj", "{73FF4F57-394D-43BA-A60B-2F1D0386B064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture_assembly_DatabaseImplement", "Furniture_assembly_DatabaseImplement\Furniture_assembly_DatabaseImplement.csproj", "{369A90A2-77AA-47A9-BED1-23281D70DA1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furniture_assembly_DatabaseImplement", "Furniture_assembly_DatabaseImplement\Furniture_assembly_DatabaseImplement.csproj", "{369A90A2-77AA-47A9-BED1-23281D70DA1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture_assembly_RestApi", "Furniture_assembly_RestApi\Furniture_assembly_RestApi.csproj", "{BFE96BE5-181F-478D-A24D-ADD4A65456ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture_assembly_ClientApp", "Furniture_assembly_ClientApp\Furniture_assembly_ClientApp.csproj", "{B0445939-0944-4C46-8B3B-DDDEE4F0B387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{369A90A2-77AA-47A9-BED1-23281D70DA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{369A90A2-77AA-47A9-BED1-23281D70DA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{369A90A2-77AA-47A9-BED1-23281D70DA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE96BE5-181F-478D-A24D-ADD4A65456ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE96BE5-181F-478D-A24D-ADD4A65456ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE96BE5-181F-478D-A24D-ADD4A65456ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE96BE5-181F-478D-A24D-ADD4A65456ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0445939-0944-4C46-8B3B-DDDEE4F0B387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0445939-0944-4C46-8B3B-DDDEE4F0B387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0445939-0944-4C46-8B3B-DDDEE4F0B387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0445939-0944-4C46-8B3B-DDDEE4F0B387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

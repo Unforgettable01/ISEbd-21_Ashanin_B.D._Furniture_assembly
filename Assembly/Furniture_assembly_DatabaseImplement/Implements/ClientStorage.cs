@@ -1,17 +1,19 @@
 ﻿using Furniture_assembly_BusinessLogic.BindingModels;
+using Furniture_assembly_BusinessLogic.Interfaces;
 using Furniture_assembly_BusinessLogic.ViewModels;
 using Furniture_assembly_DatabaseImplement.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Furniture_assembly_DatabaseImplement.Implements
 {
-    public class ClientStorage
+    public class ClientStorage: IClientStorage
     {
         public List<ClientViewModel> GetFullList()
         {
-            using (var context = new Furniture_assembly_Database)
+            using (var context = new Furniture_assembly_Database())
             {
                 return context.Clients
                 .Select(CreateModel).ToList();

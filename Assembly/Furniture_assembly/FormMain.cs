@@ -145,6 +145,11 @@ namespace Furniture_assembly
             var form = Container.Resolve<FormReportOrders>();
             form.ShowDialog();
         }
+        private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormClients>();
+            form.ShowDialog();
+        }
 
     }
 }
