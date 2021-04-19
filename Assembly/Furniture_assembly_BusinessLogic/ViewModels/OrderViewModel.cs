@@ -16,6 +16,11 @@ namespace Furniture_assembly_BusinessLogic.ViewModels
         [DataMember]
         public int ClientId { get; set; }
         [DataMember]
+        public int ImplementerId { get; set; }
+        [DataMember]
+        [DisplayName("Исполнитель")]
+        public int ImplementerFIO { get; set; }
+        [DataMember]
         public int FurnitureId { get; set; }
         [DataMember]
         [DisplayName("Клиент")]

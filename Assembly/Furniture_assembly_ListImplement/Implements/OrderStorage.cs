@@ -1,4 +1,5 @@
 ﻿using Furniture_assembly_BusinessLogic.BindingModels;
+using Furniture_assembly_BusinessLogic.Enums;
 using Furniture_assembly_BusinessLogic.Interfaces;
 using Furniture_assembly_BusinessLogic.ViewModels;
 using Furniture_assembly_ListImplement.Models;
@@ -38,7 +39,9 @@ namespace Furniture_assembly_ListImplement.Implements
             {
                 if ((!model.DateFrom.HasValue && !model.DateTo.HasValue && order.DateCreate.Date == model.DateCreate.Date)
                      || (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate.Date >= model.DateFrom.Value.Date && order.DateCreate.Date <= model.DateTo.Value.Date)
-                     || (model.ClientId.HasValue && order.ClientId == model.ClientId))
+                     || (model.ClientId.HasValue && order.ClientId == model.ClientId)
+                     || (model.FreeOrders.HasValue && model.FreeOrders.Value && order.Status == OrderStatus.Принят)
+                     || (model.ImplementerId.HasValue && order.ImplementerId == model.ImplementerId && order.Status == OrderStatus.Выполняется))
                 {
                     result.Add(CreateModel(order));
                 }
@@ -109,6 +112,7 @@ namespace Furniture_assembly_ListImplement.Implements
         {
             order.FurnitureId = model.FurnitureId;
             order.ClientId = model.ClientId.Value;
+            order.ImplementerId = model.ImplementerId;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -124,6 +128,8 @@ namespace Furniture_assembly_ListImplement.Implements
                 Id = order.Id,
                 FurnitureId = order.FurnitureId,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
+                ImplementerFIO = string.Empty,
                 ClientFIO = string.Empty,
                 FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
                 Count = order.Count,
@@ -132,6 +138,17 @@ namespace Furniture_assembly_ListImplement.Implements
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement
             };
+            if (tempOrder.ImplementerId != null)
+            {
+                foreach (var implementer in source.Implementers)
+                {
+                    if (implementer.Id == order.ImplementerId)
+                    {
+                        tempOrder.ImplementerFIO = implementer.ImplementerFIO;
+                        break;
+                    }
+                }
+            }
         }
     }
 }
