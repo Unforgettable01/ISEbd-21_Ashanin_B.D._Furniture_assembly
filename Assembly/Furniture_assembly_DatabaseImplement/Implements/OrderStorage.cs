@@ -62,7 +62,8 @@ namespace Furniture_assembly_DatabaseImplement.Implements
                     Sum = order.Sum,
                     Status = order.Status,
                     DateCreate = order.DateCreate,
-                    DateImplement = order.DateImplement
+                    DateImplement = order.DateImplement,
+                    ClientId = order.ClientId
                 } : null;
             }
         }

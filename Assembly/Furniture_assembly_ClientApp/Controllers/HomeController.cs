@@ -116,7 +116,7 @@ namespace Furniture_assembly_ClientApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Furnitures = APIClient.GetRequest<List<FurnitureViewModel>>("api/main/furniturelist");
+            ViewBag.Furnitures = APIClient.GetRequest<List<FurnitureViewModel>>("api/main/getfurniturelist");
             return View();
         }
 
@@ -127,7 +127,6 @@ namespace Furniture_assembly_ClientApp.Controllers
             {
                 return;
             }
-            var str = Program.Client.Id;
             APIClient.PostRequest("api/main/createorder", new CreateOrderBindingModel
             {
                 FurnitureId = furniture,
