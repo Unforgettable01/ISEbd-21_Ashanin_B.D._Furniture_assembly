@@ -13,9 +13,6 @@ namespace Furniture_assembly_BusinessLogic.ViewModels
         [DisplayName("ФИО клиента")]
         public string ClientFIO { get; set; }
 
-        //[DataMember]
-        //[DisplayName("Логин")]
-        //public string Login { get; set; }
         [DataMember]
         [DisplayName("Почта")]
         public string Email { get; set; }

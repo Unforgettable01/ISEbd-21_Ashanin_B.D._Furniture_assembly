@@ -37,7 +37,13 @@ namespace Furniture_assembly_ClientApp.Controllers
             if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(password)
             && !string.IsNullOrEmpty(fio))
             {
-                //прописать запрос
+                APIClient.PostRequest("api/client/updatedata", new ClientBindingModel
+                {
+                    Id = Program.Client.Id,
+                    ClientFIO = fio,
+                    Email= login,
+                    Password = password
+                });
                 Program.Client.ClientFIO = fio;
                 Program.Client.Email = login;
                 Program.Client.Password = password;
@@ -68,62 +74,67 @@ namespace Furniture_assembly_ClientApp.Controllers
             {
                 Program.Client =
                 APIClient.GetRequest<ClientViewModel>($"api/client/login?login={login}&password={password}");
-if (Program.Client == null)
-            {
-                throw new Exception("Неверный логин/пароль");
+                if (Program.Client == null)
+                {
+                    throw new Exception("Неверный логин/пароль");
+                }
+                Response.Redirect("Index");
+                return;
             }
-            Response.Redirect("Index");
-            return;
+            throw new Exception("Введите логин, пароль");
         }
-throw new Exception("Введите логин, пароль");
-    }
-    [HttpGet]
-    public IActionResult Register()
-    {
-        return View();
-    }
-    [HttpPost]
-    public void Register(string login, string password, string fio)
-    {
-        if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(password)
-        && !string.IsNullOrEmpty(fio))
+        [HttpGet]
+        public IActionResult Register()
         {
-            APIClient.PostRequest("api/client/register", new
-            ClientBindingModel
+            return View();
+        }
+        [HttpPost]
+        public void Register(string login, string password, string fio)
+        {
+            if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(password)
+            && !string.IsNullOrEmpty(fio))
             {
-                ClientFIO = fio,
-                Email = login,
-                Password = password
-            });
-            Response.Redirect("Enter");
-            return;
+                APIClient.PostRequest("api/client/register", new ClientBindingModel
+                {
+                    ClientFIO = fio,
+                    Email = login,
+                    Password = password
+                });
+                Response.Redirect("Enter");
+                return;
+            }
+            throw new Exception("Введите логин, пароль и ФИО");
         }
-        throw new Exception("Введите логин, пароль и ФИО");
-    }
-    [HttpGet]
-    public IActionResult Create()
-    {
-        ViewBag.Furniture =
-        APIClient.GetRequest<List<FurnitureViewModel>>("api/main/getfurniturelist");
-        return View();
-    }
-    [HttpPost]
-    public void Create(int furniture, int count, decimal sum)
-    {
-        if (count == 0 || sum == 0)
+        [HttpGet]
+        public IActionResult Create()
         {
-            return;
+            ViewBag.Furniture =
+            APIClient.GetRequest<List<FurnitureViewModel>>("api/main/getfurniturelist");
+            return View();
         }
-        //прописать запрос
-        Response.Redirect("Index");
+        [HttpPost]
+        public void Create(int furniture, int count, decimal sum)
+        {
+            if (count == 0 || sum == 0)
+            {
+                return;
+            }
+            APIClient.PostRequest("api/main/createorder", new CreateOrderBindingModel
+            {
+                FurnitureId = furniture,
+                ClientId = Program.Client.Id,
+                Sum = sum,
+                Count = count
+            });
+            Response.Redirect("Index");
+        }
+        [HttpPost]
+        public decimal Calc(decimal count, int furniture)
+        {
+            FurnitureViewModel furn =
+            APIClient.GetRequest<FurnitureViewModel>($"api/main/getfurniture?furnitureId={furniture}");
+            return count * furn.Price;
+        }
     }
-    [HttpPost]
-    public decimal Calc(decimal count, int furniture)
-    {
-    FurnitureViewModel furn =
-    APIClient.GetRequest<FurnitureViewModel>($"api/main/getfurniture?furnitureId={furniture}");
-        return count * furn.Price;
-    }
-}
 
 }
