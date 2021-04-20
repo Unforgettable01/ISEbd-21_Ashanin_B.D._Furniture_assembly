@@ -12,6 +12,37 @@ namespace Furniture_assembly_DatabaseImplement.Implements
 {
     public class OrderStorage : IOrderStorage
     {
+        private Order CreateModel(OrderBindingModel model, Order order, Furniture_assembly_Database context)
+        {
+            order.FurnitureId = model.FurnitureId;
+            order.ClientId = Convert.ToInt32(model.ClientId);
+            order.Count = model.Count;
+            order.Sum = model.Sum;
+            order.Status = model.Status;
+            order.DateCreate = model.DateCreate;
+            order.DateImplement = model.DateImplement;
+            order.ImplementerId = model.ImplementerId;
+            return order;
+        }
+        private OrderViewModel CreateModel(Order order)
+        {
+            return new OrderViewModel
+            {
+                Id = order.Id,
+                ClientId = order.ClientId,
+                FurnitureId = order.FurnitureId,
+                ImplementerId = order.ImplementerId,
+                ClientFIO = order.Client.ClientFIO,
+                ImplementerFIO = order.ImplementerId.HasValue ? order.Implementer.ImplementerFIO : string.Empty,
+                FurnitureName = order.Furniture.FurnitureName,
+                Count = order.Count,
+                Sum = order.Sum,
+                Status = order.Status,
+                DateCreate = order.DateCreate,
+                DateImplement = order?.DateImplement
+
+            };
+        }
         public List<OrderViewModel> GetFullList()
         {
             using (var context = new Furniture_assembly_Database())
@@ -152,36 +183,6 @@ namespace Furniture_assembly_DatabaseImplement.Implements
                     throw new Exception("Элемент не найден");
                 }
             }
-        }
-
-        private Order CreateModel(OrderBindingModel model, Order order, Furniture_assembly_Database context)
-        {
-            order.FurnitureId = model.FurnitureId;
-            order.ClientId = Convert.ToInt32(model.ClientId);
-            order.Count = model.Count;
-            order.Sum = model.Sum;
-            order.Status = model.Status;
-            order.DateCreate = model.DateCreate;
-            order.DateImplement = model.DateImplement;
-            order.ImplementerId = model.ImplementerId;
-            return order;
-        }
-        private OrderViewModel CreateModel(Order order)
-        {
-            return new OrderViewModel
-            {
-                Id = order.Id,
-                ClientId = order.ClientId,
-                FurnitureId = order.FurnitureId,
-                ClientFIO = order.Client.ClientFIO,
-                FurnitureName = order.Furniture.FurnitureName,
-                Count = order.Count,
-                Sum = order.Sum,
-                Status = order.Status,
-                DateCreate = order.DateCreate,
-                DateImplement = order?.DateImplement
-
-            };
         }
     }
 }
