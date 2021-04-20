@@ -120,55 +120,6 @@ namespace Furniture_assembly_ListImplement.Implements
             order.DateImplement = model.DateImplement;
             return order;
         }
-
-        //private OrderViewModel CreateModel(Order order)
-        //{
-        //    OrderViewModel tempOrder = new OrderViewModel
-        //    {
-        //        Id = order.Id,
-        //        FurnitureId = order.FurnitureId,
-        //        ClientId = order.ClientId,
-        //        ImplementerId = order.ImplementerId,
-        //        ImplementerFIO = string.Empty,
-        //        ClientFIO = string.Empty,
-        //        FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
-        //        Count = order.Count,
-        //        Sum = order.Sum,
-        //        Status = order.Status,
-        //        DateCreate = order.DateCreate,
-        //        DateImplement = order.DateImplement
-        //    };
-        //    foreach (var furniture in source.Furnitures)
-        //    {
-        //        if (furniture.Id == order.FurnitureId)
-        //        {
-        //            tempOrder.FurnitureName = furniture.FurnitureName;
-        //            break;
-        //        }
-        //    }
-
-        //    foreach (var client in source.Clients)
-        //    {
-        //        if (client.Id == order.ClientId)
-        //        {
-        //            tempOrder.ClientFIO = client.ClientFIO;
-        //            break;
-        //        }
-        //    }
-
-        //    if (tempOrder.ImplementerId != null)
-        //    {
-        //        foreach (var implementer in source.Implementers)
-        //        {
-        //            if (implementer.Id == order.ImplementerId)
-        //            {
-        //                tempOrder.ImplementerFIO = implementer.ImplementerFIO;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //    return tempOrder;
-        //}
         private OrderViewModel CreateModel(Order order)
         {
             string furnitureName = null;
