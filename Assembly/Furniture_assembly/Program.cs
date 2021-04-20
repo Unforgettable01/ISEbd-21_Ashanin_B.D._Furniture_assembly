@@ -45,6 +45,8 @@ namespace Furniture_assembly
 
             currentContainer.RegisterType<ClientLogic>(new HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<WorkModeling>(new HierarchicalLifetimeManager());
+
             return currentContainer;
         }
     }
