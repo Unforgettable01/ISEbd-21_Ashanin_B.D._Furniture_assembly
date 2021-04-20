@@ -178,13 +178,13 @@ namespace Furniture_assembly_FileImplement
             if (Implementers != null)
             {
                 var xElement = new XElement("Implementers");
-                foreach (var client in Implementers)
+                foreach (var implementer in Implementers)
                 {
                     xElement.Add(new XElement("Implementer",
-                    new XAttribute("Id", client.Id),
-                    new XElement("ImplementerFIO", client.ImplementerFIO),
-                    new XElement("WorkingTime", client.WorkingTime),
-                    new XElement("PauseTime", client.PauseTime)));
+                    new XAttribute("Id", implementer.Id),
+                    new XElement("ImplementerFIO", implementer.ImplementerFIO),
+                    new XElement("WorkingTime", implementer.WorkingTime),
+                    new XElement("PauseTime", implementer.PauseTime)));
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ImplementerFileName);

@@ -101,15 +101,14 @@ namespace Furniture_assembly_FileImplement.Implements
                 FurnitureId = order.FurnitureId,
                 ClientId = order.ClientId,
                 ImplementerId = order.ImplementerId,
-                ClientFIO = string.Empty,
                 FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement,
-               // ClientFIO = sourse.Clients.FirstOrDefault(rec => rec.Id == order.ClientId)?.ClientFIO,
-                ImplementerFIO = sourse.Implementers.FirstOrDefault(rec => rec.Id == order.ImplementerId)?.ImplementerFIO
+                ClientFIO = source.Clients.FirstOrDefault(client => client.Id == order.ClientId)?.ClientFIO,
+                ImplementerFIO = source.Implementers.FirstOrDefault(implementer => implementer.Id == order.ImplementerId)?.ImplementerFIO,
             };
         }
     }
