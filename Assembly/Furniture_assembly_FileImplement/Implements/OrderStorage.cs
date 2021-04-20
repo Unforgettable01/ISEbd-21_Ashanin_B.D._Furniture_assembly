@@ -1,4 +1,5 @@
 ﻿using Furniture_assembly_BusinessLogic.BindingModels;
+using Furniture_assembly_BusinessLogic.Enums;
 using Furniture_assembly_BusinessLogic.Interfaces;
 using Furniture_assembly_BusinessLogic.ViewModels;
 using Furniture_assembly_FileImplement.Models;
@@ -32,7 +33,9 @@ namespace Furniture_assembly_FileImplement.Implements
             return source.Orders
                .Where(rec => (!model.DateFrom.HasValue && !model.DateTo.HasValue && rec.DateCreate.Date == model.DateCreate.Date)
                || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate.Date >= model.DateFrom.Value.Date && rec.DateCreate.Date <= model.DateTo.Value.Date)
-               || (model.ClientId.HasValue && rec.ClientId == model.ClientId))
+               || (model.ClientId.HasValue && rec.ClientId == model.ClientId)
+               || (model.FreeOrders.HasValue && model.FreeOrders.Value && rec.Status == OrderStatus.Принят)
+                || (model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && rec.Status == OrderStatus.Выполняется))
                .Select(CreateModel)
                .ToList();
         }
@@ -81,6 +84,7 @@ namespace Furniture_assembly_FileImplement.Implements
         {
             order.FurnitureId = model.FurnitureId;
             order.ClientId = model.ClientId.Value;
+            order.ImplementerId = model.ImplementerId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -96,13 +100,16 @@ namespace Furniture_assembly_FileImplement.Implements
                 Id = order.Id,
                 FurnitureId = order.FurnitureId,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 ClientFIO = string.Empty,
                 FurnitureName = source.Furnitures.FirstOrDefault(furniture => furniture.Id == order.FurnitureId).FurnitureName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
                 DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement
+                DateImplement = order.DateImplement,
+               // ClientFIO = sourse.Clients.FirstOrDefault(rec => rec.Id == order.ClientId)?.ClientFIO,
+                ImplementerFIO = sourse.Implementers.FirstOrDefault(rec => rec.Id == order.ImplementerId)?.ImplementerFIO
             };
         }
     }
