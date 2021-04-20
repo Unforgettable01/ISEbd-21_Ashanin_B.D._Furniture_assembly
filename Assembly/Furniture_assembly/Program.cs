@@ -35,6 +35,8 @@ namespace Furniture_assembly
 
             currentContainer.RegisterType<IClientStorage, ClientStorage>(new HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<IImplementerStorage, ImplementerStorage>(new HierarchicalLifetimeManager());
+
             currentContainer.RegisterType<ComponentLogic>(new HierarchicalLifetimeManager());
 
             currentContainer.RegisterType<OrderLogic>(new HierarchicalLifetimeManager());

@@ -39,20 +39,22 @@
             // buttonRefresh
             // 
             this.buttonRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRefresh.Location = new System.Drawing.Point(464, 153);
+            this.buttonRefresh.Location = new System.Drawing.Point(696, 235);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(112, 35);
             this.buttonRefresh.TabIndex = 9;
             this.buttonRefresh.Text = "Обновить";
             this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonDelete
             // 
             this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDelete.Location = new System.Drawing.Point(464, 114);
+            this.buttonDelete.Location = new System.Drawing.Point(696, 175);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(112, 35);
             this.buttonDelete.TabIndex = 8;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -61,20 +63,22 @@
             // buttonUpdate
             // 
             this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUpdate.Location = new System.Drawing.Point(464, 70);
+            this.buttonUpdate.Location = new System.Drawing.Point(696, 108);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
+            this.buttonUpdate.Size = new System.Drawing.Size(112, 35);
             this.buttonUpdate.TabIndex = 7;
             this.buttonUpdate.Text = "Изменить";
             this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonAdd
             // 
             this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAdd.Location = new System.Drawing.Point(464, 32);
+            this.buttonAdd.Location = new System.Drawing.Point(696, 49);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(112, 35);
             this.buttonAdd.TabIndex = 6;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -84,24 +88,27 @@
             // 
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(2, 2);
+            this.dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(429, 356);
+            this.dataGridView.Size = new System.Drawing.Size(644, 548);
             this.dataGridView.TabIndex = 5;
             // 
-            // FormSecures
+            // FormFurnitures
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 370);
+            this.ClientSize = new System.Drawing.Size(848, 569);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridView);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormFurnitures";
             this.Text = "Комплектации";
             this.Load += new System.EventHandler(this.FormSecures_Load);

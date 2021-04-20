@@ -1,6 +1,5 @@
 ﻿using Furniture_assembly_BusinessLogic.BusinessLogics;
 using System;
-using Furniture_assembly_BusinessLogic.BusinessLogics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

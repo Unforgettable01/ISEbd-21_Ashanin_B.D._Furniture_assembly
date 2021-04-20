@@ -277,6 +277,9 @@
     <EmbeddedResource Include="FormFurniture.resx">
       <DependentUpon>FormFurniture.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFurnitures.resx">
+      <DependentUpon>FormFurnitures.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormImplementer.resx">
       <DependentUpon>FormImplementer.cs</DependentUpon>
     </EmbeddedResource>
