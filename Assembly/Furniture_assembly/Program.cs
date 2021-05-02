@@ -33,11 +33,15 @@ namespace Furniture_assembly
 
             currentContainer.RegisterType<IFurnitureStorage, FurnitureStorage>(new HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<IStoreHouseStorage, StoreHouseStorage>(new HierarchicalLifetimeManager());
+
             currentContainer.RegisterType<ComponentLogic>(new HierarchicalLifetimeManager());
 
             currentContainer.RegisterType<OrderLogic>(new HierarchicalLifetimeManager());
 
             currentContainer.RegisterType<FurnitureLogic>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<StoreHouseLogic>(new HierarchicalLifetimeManager());
 
             return currentContainer;
         }
