@@ -22,7 +22,6 @@ namespace Furniture_assembly
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(container.Resolve<FormMain>());
         }
-
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
