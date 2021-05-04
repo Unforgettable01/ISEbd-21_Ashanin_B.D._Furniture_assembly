@@ -63,7 +63,17 @@ namespace Furniture_assembly_ClientApp.Controllers
                 RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
             });
         }
+        [HttpGet]
+        public IActionResult Mail()
+        {
+            if (Program.Client == null)
+            {
+                return Redirect("~/Home/Enter");
+            }
 
+            var model = APIClient.GetRequest<List<MessageInfoViewModel>>($"api/client/getmessages?clientId={Program.Client.Id}");
+            return View(model);
+        }
         [HttpGet]
         public IActionResult Enter()
         {

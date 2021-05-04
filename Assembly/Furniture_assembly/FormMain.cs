@@ -124,5 +124,11 @@ namespace Furniture_assembly
             _workModeling.DoWork();
             LoadData();
         }
+
+        private void почтаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMails>();
+            form.ShowDialog();
+        }
     }
 }

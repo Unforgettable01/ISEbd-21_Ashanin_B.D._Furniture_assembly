@@ -83,8 +83,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                         objSmtpClient.UseDefaultCredentials = false;
                         objSmtpClient.EnableSsl = true;
                         objSmtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        objSmtpClient.Credentials = new NetworkCredential(mailLogin,
-                        mailPassword);
+                        objSmtpClient.Credentials = new NetworkCredential(mailLogin,mailPassword);
                         await Task.Run(() => objSmtpClient.Send(objMailMessage));
                     }
                     catch (Exception)
@@ -114,8 +113,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                 {
                     try
                     {
-                        client.Connect(info.PopHost, info.PopPort,
-                       SecureSocketOptions.SslOnConnect);
+                        client.Connect(info.PopHost, info.PopPort,SecureSocketOptions.SslOnConnect);
                         client.Authenticate(mailLogin, mailPassword);
                         for (int i = 0; i < client.Count; i++)
                         {

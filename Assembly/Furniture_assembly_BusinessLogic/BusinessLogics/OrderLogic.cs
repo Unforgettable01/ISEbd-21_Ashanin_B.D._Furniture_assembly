@@ -45,8 +45,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             {
                 MailAddress = _clientStorage.GetElement(new ClientBindingModel
                 {
-                    Id =model.ClientId
-                })?.Email,
+                    Id =model.ClientId})?.Email,
                 Subject = $"Новый заказ",
                 Text = $"Заказ от {DateTime.Now} на сумму {model.Sum:N2} принят."
             });
