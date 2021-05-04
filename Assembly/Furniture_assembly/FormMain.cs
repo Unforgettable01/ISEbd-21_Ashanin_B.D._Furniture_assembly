@@ -36,8 +36,8 @@ namespace Furniture_assembly
                     dataGridViewMain.DataSource = list;
                     dataGridViewMain.Columns[0].Visible = false;
                     dataGridViewMain.Columns[1].Visible = false;
-                    dataGridViewMain.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridViewMain.Columns[3].Visible = false;
+                    dataGridViewMain.Columns[2].Visible = false;
+                    dataGridViewMain.Columns[4].Visible = false;
                 }
             }
             catch (Exception ex)
