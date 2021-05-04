@@ -39,8 +39,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         {
             var client = _clientStorage.GetElement(new ClientBindingModel
             {
-                Email =
-           model.FromMailAddress
+                Email = model.FromMailAddress
             });
             model.ClientId = client?.Id;
             _messageInfoStorage.Insert(model);
