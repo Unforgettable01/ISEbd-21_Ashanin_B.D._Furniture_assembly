@@ -59,8 +59,7 @@ namespace Furniture_assembly
             // 
             // buttonCreateOrder
             // 
-            this.buttonCreateOrder.Location = new System.Drawing.Point(1022, 23);
-            this.buttonCreateOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCreateOrder.Location = new System.Drawing.Point(1533, 36);
             this.buttonCreateOrder.Name = "buttonCreateOrder";
             this.buttonCreateOrder.Size = new System.Drawing.Size(82, 39);
             this.buttonCreateOrder.TabIndex = 1;
@@ -70,8 +69,7 @@ namespace Furniture_assembly
             // 
             // buttonTakeOrderInWork
             // 
-            this.buttonTakeOrderInWork.Location = new System.Drawing.Point(1022, 66);
-            this.buttonTakeOrderInWork.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonTakeOrderInWork.Location = new System.Drawing.Point(1533, 102);
             this.buttonTakeOrderInWork.Name = "buttonTakeOrderInWork";
             this.buttonTakeOrderInWork.Size = new System.Drawing.Size(82, 39);
             this.buttonTakeOrderInWork.TabIndex = 2;
@@ -81,8 +79,7 @@ namespace Furniture_assembly
             // 
             // buttonOrderReady
             // 
-            this.buttonOrderReady.Location = new System.Drawing.Point(1022, 116);
-            this.buttonOrderReady.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonOrderReady.Location = new System.Drawing.Point(1533, 178);
             this.buttonOrderReady.Name = "buttonOrderReady";
             this.buttonOrderReady.Size = new System.Drawing.Size(82, 39);
             this.buttonOrderReady.TabIndex = 3;
@@ -92,8 +89,7 @@ namespace Furniture_assembly
             // 
             // buttonPayOrder
             // 
-            this.buttonPayOrder.Location = new System.Drawing.Point(1022, 167);
-            this.buttonPayOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonPayOrder.Location = new System.Drawing.Point(1533, 257);
             this.buttonPayOrder.Name = "buttonPayOrder";
             this.buttonPayOrder.Size = new System.Drawing.Size(82, 39);
             this.buttonPayOrder.TabIndex = 4;
@@ -103,8 +99,7 @@ namespace Furniture_assembly
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(1022, 210);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonRefresh.Location = new System.Drawing.Point(1533, 323);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(82, 39);
             this.buttonRefresh.TabIndex = 5;
@@ -114,17 +109,15 @@ namespace Furniture_assembly
             // 
             // menuStripCatalog
             // 
-            this.menuStripCatalog.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStripCatalog.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справочникиToolStripMenuItem,
-            this.складыToolStripMenuItem,
-            this.пополнениеСкладаToolStripMenuItem});
-            this.menuStripCatalog.Location = new System.Drawing.Point(0, 0);
-            this.menuStripCatalog.Name = "menuStripCatalog";
-            this.menuStripCatalog.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStripCatalog.Size = new System.Drawing.Size(1112, 24);
-            this.menuStripCatalog.TabIndex = 6;
-            this.menuStripCatalog.Text = "Catalog";
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справочникиToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1668, 33);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // справочникиToolStripMenuItem
             // 
@@ -175,8 +168,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.buttonTakeOrderInWork);
             this.Controls.Add(this.buttonCreateOrder);
             this.Controls.Add(this.dataGridViewMain);
-            this.Controls.Add(this.menuStripCatalog);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "FormMain";
             this.Text = "Сборка мебели";
             this.Load += new System.EventHandler(this.FormMain_Load);
