@@ -30,11 +30,12 @@ namespace Furniture_assembly_RestApi
             services.AddTransient<FurnitureLogic>();
             MailLogic.MailConfig(new MailConfig
             {
-                SmtpClientHost = "smpt.gmail.com",
+                SmtpClientHost = "smtp.gmail.com",
                 SmtpClientPort = 587,
                 MailLogin = "tplab94@gmail.com",
-                MailPassword = "12345qwert67",
+                MailPassword = "12345qwert67"
             });
+
             services.AddControllers().AddNewtonsoftJson();
         }
 

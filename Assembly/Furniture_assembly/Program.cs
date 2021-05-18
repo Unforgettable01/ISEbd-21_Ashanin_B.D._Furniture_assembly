@@ -34,7 +34,8 @@ namespace Furniture_assembly
             {
                 PopHost = ConfigurationManager.AppSettings["PopHost"],
                 PopPort = Convert.ToInt32(ConfigurationManager.AppSettings["PopPort"]),
-                Storage = container.Resolve<IMessageInfoStorage>()
+                Storage = container.Resolve<IMessageInfoStorage>(),
+                ClientStorage = container.Resolve<IClientStorage>()
             }, 0, 100000);
 
 
@@ -73,6 +74,8 @@ namespace Furniture_assembly
             currentContainer.RegisterType<WorkModeling>(new HierarchicalLifetimeManager());
 
             currentContainer.RegisterType<MailLogic>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<ImplementerLogic>(new HierarchicalLifetimeManager());
 
             return currentContainer;
         }

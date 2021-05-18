@@ -21,8 +21,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         private static string mailPassword;
         private readonly IMessageInfoStorage _messageInfoStorage;
         private readonly IClientStorage _clientStorage;
-        public MailLogic(IMessageInfoStorage messageInfoStorage, IClientStorage
-       clientStorage)
+        public MailLogic(IMessageInfoStorage messageInfoStorage, IClientStorage clientStorage)
         {
             _messageInfoStorage = messageInfoStorage;
             _clientStorage = clientStorage;
@@ -61,15 +60,13 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             {
                 return;
             }
-            if (string.IsNullOrEmpty(info.MailAddress) ||
-           string.IsNullOrEmpty(info.Subject) || string.IsNullOrEmpty(info.Text))
+            if (string.IsNullOrEmpty(info.MailAddress) || string.IsNullOrEmpty(info.Subject) || string.IsNullOrEmpty(info.Text))
             {
                 return;
             }
             using (var objMailMessage = new MailMessage())
             {
-                using (var objSmtpClient = new SmtpClient(smtpClientHost,
-               smtpClientPort))
+                using (var objSmtpClient = new SmtpClient(smtpClientHost, smtpClientPort))
                 {
                     try
                     {
@@ -82,7 +79,8 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                         objSmtpClient.UseDefaultCredentials = false;
                         objSmtpClient.EnableSsl = true;
                         objSmtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        objSmtpClient.Credentials = new NetworkCredential(mailLogin,mailPassword);
+                        objSmtpClient.Credentials = new NetworkCredential(mailLogin, mailPassword);
+
                         await Task.Run(() => objSmtpClient.Send(objMailMessage));
                     }
                     catch (Exception)
@@ -112,7 +110,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                 {
                     try
                     {
-                        client.Connect(info.PopHost, info.PopPort,SecureSocketOptions.SslOnConnect);
+                        client.Connect(info.PopHost, info.PopPort, SecureSocketOptions.SslOnConnect);
                         client.Authenticate(mailLogin, mailPassword);
                         for (int i = 0; i < client.Count; i++)
                         {
@@ -123,6 +121,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
                                 {
                                     DateDelivery = message.Date.DateTime,
                                     MessageId = message.MessageId,
+                                    ClientId = info.ClientStorage.GetElement(new ClientBindingModel { Email = mail.Address })?.Id,
                                     FromMailAddress = mail.Address,
                                     Subject = message.Subject,
                                     Body = message.TextBody

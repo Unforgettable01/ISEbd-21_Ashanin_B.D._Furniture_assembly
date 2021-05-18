@@ -1,24 +1,25 @@
 ﻿@using Furniture_assembly_BusinessLogic.ViewModels
 @model List<MessageInfoViewModel>
-@{
-    ViewData["Title"] = "Mail";
-}
+@{ ViewData["Title"] = "Mail"; }
 <div class="text-center">
-    <h2 class="display-4">Отправить письмо</h2>
+    <h1 class="display-4">Письма</h1>
 </div>
 <div class="text-center">
-    @{
+    @{ if (Model == null)
+        {
+            <h3 class="display-4">Авторизируйтесь</h3> return;
+        }
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        Отпарвитель
-                    </th>
-                    <th>
-                        Дата письма
+                        Отправитель
                     </th>
                     <th>
                         Заголовок
+                    </th>
+                    <th>
+                        Дата письма
                     </th>
                     <th>
                         Текст
@@ -33,10 +34,10 @@
                             @Html.DisplayFor(modelItem => item.SenderName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DateDelivery)
+                            @Html.DisplayFor(modelItem => item.Subject)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Subject)
+                            @Html.DisplayFor(modelItem => item.DateDelivery)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Body)
@@ -44,6 +45,5 @@
                     </tr>
                 }
             </tbody>
-        </table>
-    }
+        </table> }
 </div>

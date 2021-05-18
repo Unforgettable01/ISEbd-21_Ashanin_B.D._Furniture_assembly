@@ -29,7 +29,7 @@ namespace Furniture_assembly_DatabaseImplement.Implements
             using (var context = new Furniture_assembly_Database())
             {
                 return context.Clients
-                    .Where(rec => rec.ClientFIO.Contains(model.ClientFIO) || (rec.Email.Equals(model.Email) && rec.Password.Equals(model.Password)))
+                    .Where(rec => rec.Email.Contains(model.Email) || (rec.Email.Equals(model.Email) && rec.Password.Equals(model.Password)))
                     .Select(CreateModel).ToList();
             }
         }
