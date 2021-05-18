@@ -19,5 +19,7 @@ namespace Furniture_assembly_BusinessLogic.Interfaces
         void Update(StoreHouseBindingModel model);
 
         void Delete(StoreHouseBindingModel model);
+
+        bool CheckAndTake(int count, Dictionary<int, (string, int)> components);
     }
 }
