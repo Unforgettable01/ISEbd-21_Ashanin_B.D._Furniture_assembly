@@ -32,15 +32,7 @@ namespace Furniture_assembly
         {
             try
             {
-                var list = _orderLogic.Read(null);
-                if (list != null)
-                {
-                    dataGridViewMain.DataSource = list;
-                    dataGridViewMain.Columns[0].Visible = false;
-                    dataGridViewMain.Columns[1].Visible = false;
-                    dataGridViewMain.Columns[2].Visible = false;
-                    dataGridViewMain.Columns[4].Visible = false;
-                }
+                Program.ConfigGrid(_orderLogic.Read(null), dataGridViewMain);
             }
             catch (Exception ex)
             {

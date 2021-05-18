@@ -4,7 +4,6 @@ using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 using System.Runtime.Serialization.Json;
-using System.Text;
 
 namespace Furniture_assembly_BusinessLogic.BusinessLogics
 {
@@ -56,12 +55,10 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         }
         private void SaveToFile<T>(string folderName) where T : class, new()
         {
-            var records = GetList<T>(); 
-        T obj = new T();
-            DataContractJsonSerializer jsonFormatter = new
-           DataContractJsonSerializer(typeof(List<T>));
-            using (FileStream fs = new FileStream(string.Format("{0}/{1}.json",
-           folderName, obj.GetType().Name), FileMode.OpenOrCreate))
+            var records = GetList<T>();
+            T obj = new T();
+            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<T>));
+            using (FileStream fs = new FileStream(string.Format("{0}/{1}.json", folderName, obj.GetType().Name), FileMode.OpenOrCreate))
             {
                 jsonFormatter.WriteObject(fs, records);
             }

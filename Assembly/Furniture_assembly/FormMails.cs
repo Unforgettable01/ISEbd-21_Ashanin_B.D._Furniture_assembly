@@ -23,11 +23,13 @@ namespace Furniture_assembly
 
         private void FormMails_Load(object sender, EventArgs e)
         {
-            var list = _mailLogic.Read(null);
-            if (list != null)
+            try
             {
-                dataGridViewMails.DataSource = list;
-                dataGridViewMails.Columns[0].Visible = false;
+                Program.ConfigGrid(_mailLogic.Read(null), dataGridViewMails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
