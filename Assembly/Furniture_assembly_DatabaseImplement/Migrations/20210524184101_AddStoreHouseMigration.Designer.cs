@@ -4,14 +4,16 @@ using Furniture_assembly_DatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Furniture_assembly_DatabaseImplement.Migrations
 {
     [DbContext(typeof(Furniture_assembly_Database))]
-    partial class Furniture_assembly_DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20210524184101_AddStoreHouseMigration")]
+    partial class AddStoreHouseMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -10,7 +10,7 @@ namespace Furniture_assembly_DatabaseImplement
             if (optionsBuilder.IsConfigured == false)
             {
                 optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;
-                                           Initial Catalog=FurnitureAssemblyDatabase;
+                                           Initial Catalog=FurnitureAssemblyDatabaseComplicated;
                                            Integrated Security=True;
                                            MultipleActiveResultSets=True;");
             }
@@ -20,5 +20,7 @@ namespace Furniture_assembly_DatabaseImplement
         public virtual DbSet<Furniture> Furnitures { set; get; }
         public virtual DbSet<FurnitureComponent> FurnitureComponents { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
+        public virtual DbSet<StoreHouse> StoreHouses { set; get; }
+        public virtual DbSet<StoreHouseComponent> StoreHouseComponents { set; get; }
     }
 }
