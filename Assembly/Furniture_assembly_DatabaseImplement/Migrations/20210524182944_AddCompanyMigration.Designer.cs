@@ -4,14 +4,16 @@ using Furniture_assembly_DatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Furniture_assembly_DatabaseImplement.Migrations
 {
     [DbContext(typeof(Furniture_assembly_Database))]
-    partial class Furniture_assembly_DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20210524182944_AddCompanyMigration")]
+    partial class AddCompanyMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,7 +133,7 @@ namespace Furniture_assembly_DatabaseImplement.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StoreHouses");
+                    b.ToTable("StoreHouse");
                 });
 
             modelBuilder.Entity("Furniture_assembly_DatabaseImplement.Models.StoreHouseComponent", b =>
@@ -156,7 +158,7 @@ namespace Furniture_assembly_DatabaseImplement.Migrations
 
                     b.HasIndex("StoreHouseId");
 
-                    b.ToTable("StoreHouseComponents");
+                    b.ToTable("StoreHouseComponent");
                 });
 
             modelBuilder.Entity("Furniture_assembly_DatabaseImplement.Models.FurnitureComponent", b =>
