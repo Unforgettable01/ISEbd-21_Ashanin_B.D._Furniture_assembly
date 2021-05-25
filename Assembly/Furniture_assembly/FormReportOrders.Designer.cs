@@ -93,7 +93,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.dateTimePickerFrom);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormReportOrders";
-            this.Text = "FormReportOrders";
+            this.Text = "Заказы";
             this.Load += new System.EventHandler(this.FormReportOrders_Load);
             this.ResumeLayout(false);
 

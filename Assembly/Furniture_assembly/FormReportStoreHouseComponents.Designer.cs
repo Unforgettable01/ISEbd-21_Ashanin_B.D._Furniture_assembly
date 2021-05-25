@@ -83,7 +83,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.dataGridViewReportStoreHouseComponents);
             this.Controls.Add(this.buttonSave);
             this.Name = "FormReportStoreHouseComponents";
-            this.Text = "FormReportStoreHouseComponents";
+            this.Text = "Компоненты на складах";
             this.Load += new System.EventHandler(this.FormReportStoreHouseComponents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReportStoreHouseComponents)).EndInit();
             this.ResumeLayout(false);

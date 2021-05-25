@@ -94,7 +94,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.dataGridViewReportFurnitureComponents);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormReportFurnitureComponents";
-            this.Text = "FormReportProductComponents";
+            this.Text = " Компоненты по изделиям";
             this.Load += new System.EventHandler(this.FormReportSecureComponents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReportFurnitureComponents)).EndInit();
             this.ResumeLayout(false);
