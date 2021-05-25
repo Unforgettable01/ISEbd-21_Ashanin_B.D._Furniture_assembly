@@ -18,13 +18,22 @@ namespace Furniture_assembly
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
+
         private readonly ReportLogic logic;
+
         public FormReportOrders(ReportLogic logic)
         {
-            InitializeComponent(); 
-        this.logic = logic;
+            InitializeComponent();
+            this.logic = logic;
         }
-        private void ButtonMake_Click(object sender, EventArgs e)
+
+        private void FormReportOrders_Load(object sender, EventArgs e)
+        {
+            reportViewerOrders.RefreshReport();
+            this.reportViewerOrders.RefreshReport();
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
         {
             if (dateTimePickerFrom.Value.Date >= dateTimePickerTo.Value.Date)
             {
@@ -39,16 +48,16 @@ namespace Furniture_assembly
                dateTimePickerFrom.Value.ToShortDateString() +
                 " по " +
                dateTimePickerTo.Value.ToShortDateString());
-                reportViewer.LocalReport.SetParameters(parameter);
+                reportViewerOrders.LocalReport.SetParameters(parameter);
+
                 var dataSource = logic.GetOrders(new ReportBindingModel
                 {
                     DateFrom = dateTimePickerFrom.Value,
                     DateTo = dateTimePickerTo.Value
                 });
-                ReportDataSource source = new ReportDataSource("DataSetOrders",
-               dataSource);
-                reportViewer.LocalReport.DataSources.Add(source);
-                reportViewer.RefreshReport();
+                ReportDataSource source = new ReportDataSource("DataSetOrders", dataSource);
+                reportViewerOrders.LocalReport.DataSources.Add(source);
+                reportViewerOrders.RefreshReport();
             }
             catch (Exception ex)
             {
@@ -56,7 +65,8 @@ namespace Furniture_assembly
                MessageBoxIcon.Error);
             }
         }
-        private void ButtonToPdf_Click(object sender, EventArgs e)
+
+        private void buttonSave_Click(object sender, EventArgs e)
         {
             if (dateTimePickerFrom.Value.Date >= dateTimePickerTo.Value.Date)
             {
@@ -81,17 +91,10 @@ namespace Furniture_assembly
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, 
-                       MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
-
-        private void FormReportOrders_Load(object sender, EventArgs e)
-        {
-            this.reportViewer.RefreshReport();
-        }
     }
-
 }

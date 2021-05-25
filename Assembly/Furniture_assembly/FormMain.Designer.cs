@@ -46,6 +46,9 @@
             this.wordОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excelОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pDFОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокКомпонентовПоСкладамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокИнформацииОЗаказахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокСкладовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -154,21 +157,21 @@
             // компонентыToolStripMenuItem1
             // 
             this.компонентыToolStripMenuItem1.Name = "компонентыToolStripMenuItem1";
-            this.компонентыToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.компонентыToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
             this.компонентыToolStripMenuItem1.Text = "Компоненты";
             this.компонентыToolStripMenuItem1.Click += new System.EventHandler(this.КомпонентыToolStripMenuItem_Click);
             // 
             // изделияToolStripMenuItem1
             // 
             this.изделияToolStripMenuItem1.Name = "изделияToolStripMenuItem1";
-            this.изделияToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.изделияToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
             this.изделияToolStripMenuItem1.Text = "Изделия";
             this.изделияToolStripMenuItem1.Click += new System.EventHandler(this.ИзделияToolStripMenuItem_Click);
             // 
             // складыToolStripMenuItem
             // 
             this.складыToolStripMenuItem.Name = "складыToolStripMenuItem";
-            this.складыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.складыToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.складыToolStripMenuItem.Text = "Склады";
             this.складыToolStripMenuItem.Click += new System.EventHandler(this.складыToolStripMenuItem_Click);
             // 
@@ -184,7 +187,10 @@
             this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wordОтчетToolStripMenuItem,
             this.excelОтчетToolStripMenuItem,
-            this.pDFОтчетToolStripMenuItem});
+            this.pDFОтчетToolStripMenuItem,
+            this.списокКомпонентовПоСкладамToolStripMenuItem,
+            this.списокИнформацииОЗаказахToolStripMenuItem,
+            this.списокСкладовToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
@@ -192,20 +198,44 @@
             // wordОтчетToolStripMenuItem
             // 
             this.wordОтчетToolStripMenuItem.Name = "wordОтчетToolStripMenuItem";
-            this.wordОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.wordОтчетToolStripMenuItem.Text = "Word отчет";
+            this.wordОтчетToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.wordОтчетToolStripMenuItem.Text = "Список изделий";
+            this.wordОтчетToolStripMenuItem.Click += new System.EventHandler(this.списокИзделийToolStripMenuItem_Click);
             // 
             // excelОтчетToolStripMenuItem
             // 
             this.excelОтчетToolStripMenuItem.Name = "excelОтчетToolStripMenuItem";
-            this.excelОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.excelОтчетToolStripMenuItem.Text = "Excel отчет";
+            this.excelОтчетToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.excelОтчетToolStripMenuItem.Text = "Изделия по компонентам";
+            this.excelОтчетToolStripMenuItem.Click += new System.EventHandler(this.ComponentFurnitureToolStripMenuItem_Click);
             // 
             // pDFОтчетToolStripMenuItem
             // 
             this.pDFОтчетToolStripMenuItem.Name = "pDFОтчетToolStripMenuItem";
-            this.pDFОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pDFОтчетToolStripMenuItem.Text = "PDF отчет";
+            this.pDFОтчетToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.pDFОтчетToolStripMenuItem.Text = "Список заказов";
+            this.pDFОтчетToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
+            // 
+            // списокКомпонентовПоСкладамToolStripMenuItem
+            // 
+            this.списокКомпонентовПоСкладамToolStripMenuItem.Name = "списокКомпонентовПоСкладамToolStripMenuItem";
+            this.списокКомпонентовПоСкладамToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.списокКомпонентовПоСкладамToolStripMenuItem.Text = "Список компонентов по складам";
+            this.списокКомпонентовПоСкладамToolStripMenuItem.Click += new System.EventHandler(this.списокКомпонентовВСкладахToolStripMenuItem_Click);
+            // 
+            // списокИнформацииОЗаказахToolStripMenuItem
+            // 
+            this.списокИнформацииОЗаказахToolStripMenuItem.Name = "списокИнформацииОЗаказахToolStripMenuItem";
+            this.списокИнформацииОЗаказахToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.списокИнформацииОЗаказахToolStripMenuItem.Text = "Список информации о заказах";
+            this.списокИнформацииОЗаказахToolStripMenuItem.Click += new System.EventHandler(this.списокИнформацииОЗаказахToolStripMenuItem_Click);
+            // 
+            // списокСкладовToolStripMenuItem
+            // 
+            this.списокСкладовToolStripMenuItem.Name = "списокСкладовToolStripMenuItem";
+            this.списокСкладовToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.списокСкладовToolStripMenuItem.Text = "Список складов";
+            this.списокСкладовToolStripMenuItem.Click += new System.EventHandler(this.списокСкладовToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -251,5 +281,8 @@
         private System.Windows.Forms.ToolStripMenuItem wordОтчетToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excelОтчетToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pDFОтчетToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокКомпонентовПоСкладамToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокИнформацииОЗаказахToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокСкладовToolStripMenuItem;
     }
 }

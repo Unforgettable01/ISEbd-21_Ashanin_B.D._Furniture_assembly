@@ -109,7 +109,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             SaveToWord.CreateDoc(new WordInfo
             {
                 FileName = model.FileName,
-                Title = "Список комплектаций",
+                Title = "Список изделий",
                 Furnitures = _furnitureStorage.GetFullList()
             });
         }
@@ -119,7 +119,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             SaveToExcel.CreateDoc(new ExcelInfo
             {
                 FileName = model.FileName,
-                Title = "Список комплектаций",
+                Title = "Список компонентов по изделиям",
                 FurnitureComponents = GetFurnitureComponent()
             });
         }
@@ -141,7 +141,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
             SaveToExcel.CreateDocForStoreHouse(new ExcelInfoForStoreHouse
             {
                 FileName = model.FileName,
-                Title = "Список складов",
+                Title = "Список компонетов по складам",
                 StoreHouseComponents = GetStoreHouseComponent()
             });
         }

@@ -235,6 +235,18 @@
     <Compile Include="FormReplenishmentStoreHouse.Designer.cs">
       <DependentUpon>FormReplenishmentStoreHouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportOrdersByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportOrdersByDate.Designer.cs">
+      <DependentUpon>FormReportOrdersByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportStoreHouseComponents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportStoreHouseComponents.Designer.cs">
+      <DependentUpon>FormReportStoreHouseComponents.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStoreHouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +292,18 @@
     <EmbeddedResource Include="FormFurnitureComponent.resx">
       <DependentUpon>FormFurnitureComponent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportFurnitureComponents.resx">
+      <DependentUpon>FormReportFurnitureComponents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportOrders.resx">
+      <DependentUpon>FormReportOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportOrdersByDate.resx">
+      <DependentUpon>FormReportOrdersByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportStoreHouseComponents.resx">
+      <DependentUpon>FormReportStoreHouseComponents.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -289,7 +313,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="ReportOrderByData.rdlc" />
+    <EmbeddedResource Include="ReportOrders.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FormComponent.datasource" />
     <None Include="Properties\DataSources\FormComponents.datasource" />
@@ -305,17 +330,37 @@
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BindingModels.CreateOrderBindingModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BindingModels.FurnitureBindingModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BindingModels.OrderBindingModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BindingModels.ReportBindingModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BindingModels.StoreHouseBindingModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BindingModels.StoreHouseReplenishmentBindingModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.ComponentLogic.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.FurnitureLogic.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.OrderLogic.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.ReportLogic.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.SaveToExcel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.SaveToPdf.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.SaveToWord.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.BusinessLogics.StoreHouseLogic.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.ExcelInfo.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.ExcelInfoForStoreHouse.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.PdfInfo.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.PdfInfoForOrder.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.WordInfo.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.WordInfoForStoreHouse.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.WordParagraph.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.HelperModels.WordParagraphProperties.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.Interfaces.IComponentStorage.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.Interfaces.IFurnitureStorage.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.Interfaces.IOrderStorage.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.Interfaces.IStoreHouseStorage.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ComponentViewModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.FurnitureViewModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.OrderViewModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ReportFurnitureComponentViewModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ReportOrderByDateViewModel.datasource" />
     <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ReportOrdersViewModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.ReportStoreHouseComponentsViewModel.datasource" />
+    <None Include="Properties\DataSources\Furniture_assembly_BusinessLogic.ViewModels.StoreHouseViewModel.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

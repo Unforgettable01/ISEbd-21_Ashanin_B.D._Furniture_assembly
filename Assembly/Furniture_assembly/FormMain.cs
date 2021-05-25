@@ -137,7 +137,7 @@ namespace Furniture_assembly
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    _report.SaveComponentsToWordFile(new ReportBindingModel
+                    _report.SaveFurnituresToWordFile(new ReportBindingModel
                     {
                         FileName = dialog.FileName
                     });
@@ -157,6 +157,45 @@ namespace Furniture_assembly
             var form = Container.Resolve<FormReportOrders>();
             form.ShowDialog();
         }
-
+        private void списокКомпонентовВСкладахToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportStoreHouseComponents>();
+            form.ShowDialog();
+        }
+        private void списокИнформацииОЗаказахToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportOrdersByDate>();
+            form.ShowDialog();
+        }
+        private void списокСкладовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    _report.SaveStoreHousesToWordFile(new ReportBindingModel
+                    {
+                        FileName = dialog.FileName
+                    });
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                }
+            }
+        }
+        private void списокИзделийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    _report.SaveFurnituresToWordFile(new ReportBindingModel
+                    {
+                        FileName = dialog.FileName
+                    });
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
