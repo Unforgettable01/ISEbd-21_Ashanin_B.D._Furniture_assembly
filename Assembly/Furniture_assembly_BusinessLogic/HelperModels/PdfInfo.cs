@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Furniture_assembly_BusinessLogic.HelperModels
 {
-    class PdfInfo
+    public class PdfInfo
     {
         public string FileName { get; set; }
         public string Title { get; set; }
