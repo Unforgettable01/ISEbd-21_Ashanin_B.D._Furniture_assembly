@@ -30,7 +30,6 @@ namespace Furniture_assembly
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.ReportOrderByDateViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ReportOrdersViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewerOrders = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -50,9 +49,6 @@ namespace Furniture_assembly
             // 
             // reportViewerOrders
             // 
-            reportDataSource2.Name = "DataSetOrdersByDate";
-            reportDataSource2.Value = this.ReportOrderByDateViewModelBindingSource;
-            this.reportViewerOrders.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewerOrders.LocalReport.ReportEmbeddedResource = "Furniture_assembly.ReportOrderByData.rdlc";
             this.reportViewerOrders.Location = new System.Drawing.Point(28, 77);
             this.reportViewerOrders.Name = "reportViewerOrders";
@@ -90,6 +86,7 @@ namespace Furniture_assembly
             this.Controls.Add(this.reportViewerOrders);
             this.Name = "FormReportOrdersByDate";
             this.Text = "Заказы по датам";
+            this.Load += new System.EventHandler(this.FormReportOrdersByDate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ReportOrderByDateViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReportOrdersViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);

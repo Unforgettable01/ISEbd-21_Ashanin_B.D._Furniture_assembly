@@ -66,5 +66,10 @@ namespace Furniture_assembly
                 }
             }
         }
+
+        private void FormReportOrdersByDate_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
