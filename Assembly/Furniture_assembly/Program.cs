@@ -40,6 +40,8 @@ namespace Furniture_assembly
 
             currentContainer.RegisterType<FurnitureLogic>(new HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<ReportLogic>(new HierarchicalLifetimeManager());
+
             currentContainer.RegisterType<StoreHouseLogic>(new HierarchicalLifetimeManager());
 
             return currentContainer;

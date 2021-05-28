@@ -45,8 +45,7 @@ namespace Furniture_assembly_BusinessLogic.BusinessLogics
         {
             var order = _orderStorage.GetElement(new OrderBindingModel
             {
-                Id =
-           model.OrderId
+                Id =  model.OrderId
             });
             if (order == null)
             {

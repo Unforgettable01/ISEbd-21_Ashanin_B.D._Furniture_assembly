@@ -36,7 +36,7 @@ namespace Furniture_assembly_DatabaseImplement.Implements
             }
             using (var context = new Furniture_assembly_Database())
             {
-                return context.Orders.Where(rec => rec.Id.Equals(model.Id)).Select(rec => new OrderViewModel
+                return context.Orders.Where(rec => rec.Id.Equals(model.Id)|| (rec.DateCreate>= model.DateFrom && rec.DateCreate<=model.DateTo)).Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
                     FurnitureName = context.Furnitures.FirstOrDefault(r => r.Id == rec.FurnitureId).FurnitureName,
